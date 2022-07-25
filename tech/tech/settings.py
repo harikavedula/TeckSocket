@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import urllib
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,13 +79,13 @@ WSGI_APPLICATION = 'tech.wsgi.application'
 DATABASES = { 
     'default': {
         'ENGINE': 'djongo',
-       
+       'CLIENT':{
            "name": 'sampledb',
-           "host": 'mongodb+srv://HarikaVedula:harika@empengage.d7uvb.mongodb.net/test',
+           "host": 'mongodb+srv://HarikaVedula:' + urllib.parse.quote('harika') + '@empengage.d7uvb.mongodb.net/?retryWrites=true&w=majority',
            "username": 'HarikaVedula',
            "password": 'harika',
           
-      
+       },
     }
 }
 

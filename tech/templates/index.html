@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
+  <style>
+    .active {
+      color: #b66dff !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -187,6 +192,27 @@
               <i class="mdi mdi-power"></i>
             </a>
           </li> -->
+          <!-- <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#">
+              <button class="btn btn-gradient-primary btn-rounded btn-fw"> Tech Query</button>
+            </a>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#">
+              <button class="btn btn-gradient-secondary btn-rounded btn-fw" style="color: black !important;"> Tech
+                Query</button>
+            </a>
+          </li> -->
+          <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#">
+              <button class="btn btn-gradient-light btn-rounded btn-fw"> Tech Query</button>
+            </a>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#">
+              <i class="mdi mdi-facebook-messenger"></i>
+            </a>
+          </li>
           <li class="nav-item nav-settings d-none d-lg-block">
             <a class="nav-link" href="#">
               <i class="mdi mdi-format-line-spacing"></i>
@@ -202,7 +228,7 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <nav class="sidebar sidebar-offcanvas " id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
@@ -219,19 +245,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <span class="menu-title">Home</span>
-              <i class="mdi mdi-home menu-icon"></i>
+            <a class="nav-link " href="/index">
+              <span class="menu-title active ">Home</span>
+              <i class="mdi mdi-home menu-icon active "></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="/mentions">
               <span class="menu-title">Mentions</span>
               <i class="mdi mdi-mail-ru menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="/teamoverview">
               <span class="menu-title">Team Overview</span>
               <i class="mdi mdi-account-multiple menu-icon"></i>
             </a>
@@ -371,7 +397,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-home"></i>
-              </span> Home
+              </span> Feed
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -464,66 +490,146 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Recent Tickets</h4>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th> Assignee </th>
-                          <th> Subject </th>
-                          <th> Status </th>
-                          <th> Last Update </th>
-                          <th> Tracking ID </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face1.jpg'%}" class="me-2" alt="image"> David Grey
-                          </td>
-                          <td> Fund is not recieved </td>
-                          <td>
-                            <label class="badge badge-gradient-success">DONE</label>
-                          </td>
-                          <td> Dec 5, 2017 </td>
-                          <td> WD-12345 </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face2.jpg'%}" class="me-2" alt="image"> Stella Johnson
-                          </td>
-                          <td> High loading time </td>
-                          <td>
-                            <label class="badge badge-gradient-warning">PROGRESS</label>
-                          </td>
-                          <td> Dec 12, 2017 </td>
-                          <td> WD-12346 </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="images/faces/face3.jpg'%}" class="me-2" alt="image"> Marina Michel
-                          </td>
-                          <td> Website down for one week </td>
-                          <td>
-                            <label class="badge badge-gradient-info">ON HOLD</label>
-                          </td>
-                          <td> Dec 16, 2017 </td>
-                          <td> WD-12347 </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face4.jpg'%}" class="me-2" alt="image"> John Doe
-                          </td>
-                          <td> Loosing control on server </td>
-                          <td>
-                            <label class="badge badge-gradient-danger">REJECTED</label>
-                          </td>
-                          <td> Dec 3, 2017 </td>
-                          <td> WD-12348 </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
+                      class="img-sm rounded-circle me-3" alt="image">
+
+                    <span
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
+                      Anudeep
+                      Sirise </span>&nbsp;&nbsp;<span
+                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      Recognised Harika Vedula</span>
+                  </p>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
+                      distracted either
+                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                      also the leap into
+                      electronic typesetting, remaining essentially unchanged. </p>
                   </div>
+                  <br>
+                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
+                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
+                      class="img-sm rounded-circle me-3" alt="image">
+
+                    <span
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
+                      Anudeep
+                      Sirise </span>&nbsp;&nbsp;<span
+                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      Recognised Harika Vedula</span>
+                  </p>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
+                      distracted either
+                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                      also the leap into
+                      electronic typesetting, remaining essentially unchanged. </p>
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
+                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
+                      class="img-sm rounded-circle me-3" alt="image">
+
+                    <span
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
+                      Anudeep
+                      Sirise </span>&nbsp;&nbsp;<span
+                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      Recognised Harika Vedula</span>
+                  </p>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
+                      distracted either
+                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                      also the leap into
+                      electronic typesetting, remaining essentially unchanged. </p>
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
+                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
+                      class="img-sm rounded-circle me-3" alt="image">
+
+                    <span
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
+                      Anudeep
+                      Sirise </span>&nbsp;&nbsp;<span
+                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      Recognised Harika Vedula</span>
+                  </p>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
+                      distracted either
+                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                      also the leap into
+                      electronic typesetting, remaining essentially unchanged. </p>
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
+                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+
+
+
                 </div>
               </div>
             </div>
