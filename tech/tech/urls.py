@@ -18,6 +18,5 @@ from django.urls import path
 from techsocket import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index),
-    path('/sendrecognition/',views.sendrecognition)
+    path('',views.index)
 ]
