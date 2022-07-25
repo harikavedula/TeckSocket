@@ -18,5 +18,8 @@ from django.urls import path
 from techsocket import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index)
+    path('', views.index),
+    path('index/', views.index, name='index'), 
+    path('mentions/',views.mentions,name="mentions"),
+    path('teamoverview/', views.teamoverview, name="teamoverview")
 ]
