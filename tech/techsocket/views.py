@@ -13,3 +13,7 @@ def mentions(request):
 
 def teamoverview(request):
     return render(request, 'teamoverview.html')
+
+
+def people(request):
+    return render(request, 'people.html')
