@@ -76,18 +76,18 @@ WSGI_APPLICATION = 'tech.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = { 
-    'default': {
-        'ENGINE': 'djongo',
-       'CLIENT':{
-           "name": 'sampledb',
-           "host": 'mongodb+srv://HarikaVedula:' + urllib.parse.quote('harika') + '@empengage.d7uvb.mongodb.net/?retryWrites=true&w=majority',
-           "username": 'HarikaVedula',
-           "password": 'harika',
+# DATABASES = { 
+#     'default': {
+#         'ENGINE': 'djongo',
+#        'CLIENT':{
+#            "name": 'sampledb',
+#            "host": 'mongodb+srv://HarikaVedula:' + urllib.parse.quote('harika') + '@empengage.d7uvb.mongodb.net/?retryWrites=true&w=majority',
+#            "username": 'HarikaVedula',
+#            "password": 'harika',
           
-       },
-    }
-}
+#        },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

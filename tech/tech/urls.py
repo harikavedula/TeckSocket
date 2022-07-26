@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('index/', views.index, name='index'), 
-    path('mentions/',views.mentions,name="mentions"),
-    path('teamoverview/', views.teamoverview, name="teamoverview")
+    path('mentions/', views.mentions, name="mentions"), 
+    path('teamoverview/', views.teamoverview, name="teamoverview"),
+    path('people/', views.people, name="people")
 ]
