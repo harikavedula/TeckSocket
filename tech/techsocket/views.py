@@ -4,10 +4,6 @@ from .models import *
 
 
 def index(request):
-    user=User.objects.all()
-    for x in user:
-        print(x)
-        print(x.email)
     return render(request, 'index.html')
 
 
@@ -17,7 +13,3 @@ def mentions(request):
 
 def teamoverview(request):
     return render(request, 'teamoverview.html')
-
-
-def people(request):
-    return render(request, 'people.html')
