@@ -10,6 +10,7 @@ class User(models.Model):
     password=models.CharField(max_length=20)
 
 class UserDetails(models.Model):
+    picture=models.TextField()
     first_name=models.CharField(max_length=40)
     last_name=models.CharField(max_length=40)
     user_id=models.ForeignKey(to=User,db_column='user_id',on_delete=CASCADE)
@@ -18,6 +19,10 @@ class UserDetails(models.Model):
     educational_qualifications=models.TextField()
     designation=models.CharField(max_length=50)
     join_date=models.CharField(max_length=20)
+    join_year=models.TextField(default=0)
+    join_month=models.TextField(default=0)
+    join_date_no=models.TextField(default=0)
+    social_media=models.TextField(default=0)
 
 class Birthdays(models.Model):
     birth_day=models.CharField(max_length=5)

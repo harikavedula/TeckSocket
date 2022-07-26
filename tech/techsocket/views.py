@@ -1,11 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
-# Create your views here.
 
+# Create your views here.
+from django.views.decorators.cache import cache_control
+
+@cache_control(no_cache=True, must_revalidate=True)
+def login(request):
+    if request.method=='POST':
+        user_email=request.POST['mail']
+        user_pwd=request.POST['pswd']
+        print(user_email)
+        print(user_pwd)
+        Users=User.objects.all()
+        for x in Users:
+            if x.email==user_email and x.password==user_pwd:
+                request.session['logged_in']=True
+                request.session['user_id']=x.user_id
+                return redirect('/index/')
+    return render(request,'login.html')
+
+def logout(request):
+    del request.session['logged_in']
+    del request.session['user_id']
+    return redirect('/')
 
 def index(request):
-    return render(request, 'index.html')
-
+    if 'logged_in' in request.session:
+        return render(request, 'index.html')
+    return redirect('/')
 
 def mentions(request):
     return render(request, 'mentions.html')
