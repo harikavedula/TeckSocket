@@ -22,5 +22,13 @@ urlpatterns = [
     path('index/', views.index, name='index'), 
     path('mentions/', views.mentions, name="mentions"), 
     path('teamoverview/', views.teamoverview, name="teamoverview"),
-    path('people/', views.people, name="people")
+    path('people/', views.people, name="people"),
+    path('incentives/', views.incentives, name="incentives"),
+    path('felicitations/', views.felicitations, name="felicitations"),
+    path('awards/', views.awards, name="awards"),
+    path('talentassesments/', views.talentassesments, name="talentassesments"),
+    path('goals/', views.goals, name="goals"),
+    path('rewards/', views.rewards, name="rewards"),
+    path('feedback/', views.feedback, name="feedback"),
+    path('queries/', views.queries, name="queries"),
 ]

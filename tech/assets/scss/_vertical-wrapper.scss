@@ -17,8 +17,7 @@
   min-height: calc(100vh - #{$navbar-height});
   @include display-flex();
   @include flex-direction(column);
-
-  @media (max-width: 1051px) {
+  @media (max-width: 991px) {
     margin-left: 0;
     width: 100%;
   }
