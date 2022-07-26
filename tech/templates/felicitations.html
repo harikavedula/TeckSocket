@@ -24,8 +24,163 @@
             color: #b66dff !important;
         }
 
+        .dis {
+            display: none !important;
+        }
+
+        .teamimg {
+            width: 55px !important;
+            height: 55px !important;
+            border-radius: 100% !important;
+        }
+
         .d-yes {
             display: none !important;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+        .search-box {
+            border: solid 3px #9c9fa6;
+            display: inline-block;
+            position: relative;
+            margin-top: 0px;
+            border-radius: 35px;
+            max-height: 27px;
+        }
+
+        .search-box input[type=text] {
+            font-family: Raleway, sans-serif;
+            font-size: 20px;
+            width: 20px;
+            height: 18px;
+            padding: 5px 10px 5px 10px;
+            border: none;
+            box-sizing: border-box;
+            border-radius: 50px;
+            transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+        }
+
+        .search-box input[type=text]:focus {
+            outline: none;
+        }
+
+        .search-box input[type=text]:focus,
+        .search-box input[type=text]:not(:placeholder-shown) {
+            width: 500px;
+            transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .search-box input[type=text]:focus+button[type=reset],
+        .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+
+            bottom: 13px;
+            right: 10px;
+            transition: bottom 150ms ease-out 800ms, right 150ms ease-out 800ms;
+        }
+
+        .search-box input[type=text]:focus+button[type=reset]:after,
+        .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+            top: 10px;
+            right: 10px;
+            opacity: 1;
+            transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+        }
+
+        .search-box input[type=text]:focus+button[type=reset]:before,
+        .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:before {
+            top: 10px;
+            right: 10px;
+            opacity: 1;
+            transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease-out 950ms;
+
+        }
+
+        .search-box button[type=reset] {
+            background-color: transparent;
+            width: 15px;
+            height: 15px;
+            border: 0;
+            padding: 0;
+            outline: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: -11.5px;
+            right: -12px;
+            transition: bottom 150ms ease-out 150ms, right 150ms ease-out 150ms;
+        }
+
+        .search-box button[type=reset]:before,
+        .search-box button[type=reset]:after {
+            content: "";
+            height: 15px;
+            border-left: solid 4px #9c9fa6;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+
+        .search-box button[type=reset]:after {
+            transform: rotate(45deg);
+            opacity: 0;
+            top: -20px;
+            right: -10px;
+            transition: top 150ms ease-out, right 150ms ease-out, opacity 150ms ease-out;
+        }
+
+
+
+        @media all and (max-width: 1483px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 400px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 1383px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 300px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 1268px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 200px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 1155px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 150px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 950px) {
+
+            .searnew {
+                display: none;
+            }
+
+            .dis {
+                display: inline;
+            }
+
         }
 
         @media all and (max-width: 950px) {
@@ -48,6 +203,71 @@
 
             .whi {
                 margin-top: 40px !important;
+            }
+
+        }
+
+        @media all and (max-width: 950px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 450px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 791px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 350px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .te {
+                margin-right: 15px;
+            }
+
+        }
+
+        @media all and (max-width: 685px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 250px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .te {
+                width: 100px !important;
+                padding: 10px 0px;
+                font-size: 13px;
+            }
+        }
+
+        @media all and (max-width: 545px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 150px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+        }
+
+        @media all and (max-width: 470px) {
+            .not {
+                margin-left: 0px !important;
+            }
+        }
+
+        @media all and (max-width: 425px) {
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 105px;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
             }
 
         }
@@ -143,6 +363,14 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item nav-settings  d-lg-block searnew">
+                        <div class="box ">
+                            <form class="search-box ">
+                                <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+                                <button type="reset"></button>
+                            </form>
+                        </div>
+                    </li>
 
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
@@ -303,6 +531,12 @@
                     <a class="nav-link" style="padding-top: 0px !important;" href="#">
                         <button class="btn btn-gradient-light btn-rounded btn-fw te"> Tech Query</button>
                     </a>
+                </div>
+                <div class="box " style="float:right ; margin-top: 5px;">
+                    <form class="search-box ">
+                        <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+                        <button type="reset"></button>
+                    </form>
                 </div>
 
                 <!-- <div class="box " style="float:right ; margin-top: 5px;">
@@ -662,15 +896,17 @@
                                                         Vedula
                                                     </td>
                                                     <td>Completed her 25th Project as Team Lead</td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-success">DONE</label>
-                                                    </td> -->
-                                                    <!-- <td> Dec 5, 2017 </td> -->
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
+
                                                     <td>
                                                         <a href="#" style="text-decoration: none;">
                                                             <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
+                                                    </td>
+
+                                                    <!-- <td>
 
                                                         <a href="#" style="text-decoration: none;">
                                                             <i class="mdi mdi-whatsapp"
@@ -687,7 +923,7 @@
                                                         <a href="#" style="text-decoration: none;">
                                                             <i class="mdi mdi-linkedin-box"
                                                                 style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                        </a> -->
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -696,30 +932,16 @@
                                                             alt="image"> Anudeep
                                                         Sirise
                                                     </td>
-                                                    <td> Data Analyst </td>
+                                                    <td> Won the employee of the month </td>
                                                     <!-- <td>
                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                     </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -730,30 +952,16 @@
                                                             alt="image"> Koushal
                                                         Vadrevu
                                                     </td>
-                                                    <td> UX and UI designer </td>
+                                                    <td> Got prommoted to senior UX designer </td>
                                                     <!-- <td>
                                                         <label class="badge badge-gradient-info">ON HOLD</label>
                                                     </td> -->
-                                                    <td> Dec 16, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -763,30 +971,16 @@
                                                         <img src="{% static 'images/faces/face21.jpg'%}" class="me-2"
                                                             alt="image"> John Doe
                                                     </td>
-                                                    <td> HR </td>
+                                                    <td> New Recruit in our family </td>
                                                     <!-- <td>
                                                         <label class="badge badge-gradient-danger">REJECTED</label>
                                                     </td> -->
-                                                    <td> Dec 3, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -796,30 +990,16 @@
                                                         <img src="{% static 'images/faces/face19.jpg'%}" class="me-2"
                                                             alt="image"> Yaswanth
                                                     </td>
-                                                    <td> Backend Developer </td>
+                                                    <td> Completed his first project </td>
                                                     <!-- <td>
                                                                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                                                                     </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -829,30 +1009,16 @@
                                                         <img src="{% static 'images/faces/face18.jpg'%}" class="me-2"
                                                             alt="image"> Hima
                                                     </td>
-                                                    <td> Manager </td>
+                                                    <td> Celebrating his first year Work Anniversary </td>
                                                     <!-- <td>
                                                                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                                                                     </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -862,30 +1028,16 @@
                                                         <img src="{% static 'images/faces/face24.jpg'%}" class="me-2"
                                                             alt="image"> Raghava
                                                     </td>
-                                                    <td> Data Scientist </td>
+                                                    <td> Celebrating his birthday </td>
                                                     <!-- <td>
                                                                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                                                                     </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                                                    <td> <i class="mdi mdi-chevron-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
 
+                                                    <td>
                                                         <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
+                                                            <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
@@ -933,6 +1085,28 @@
     <script src="{%static 'js/dashboard.js'%}"></script>
     <script src="{%static 'js/todolist.js'%}"></script>
     <!-- End custom js for this page -->
+    <script>
+        function myFunction() {
+
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
