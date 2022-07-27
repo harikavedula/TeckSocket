@@ -154,3 +154,11 @@ def goals(request):
 
 def queries(request):
     return render(request, 'queries.html')
+
+
+def personaldm(request):
+    return render(request, 'personaldm.html')
+
+
+def techquery(request):
+    return render(request, 'techquery.html')

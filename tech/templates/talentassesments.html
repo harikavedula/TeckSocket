@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>TechSocket</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css'%}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css'%}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
+  <style>
+    .active {
+      color: #b66dff !important;
+    }
+
+    .dis {
+      display: none !important;
+    }
+
+    .teamimg {
+      width: 55px !important;
+      height: 55px !important;
+      border-radius: 100% !important;
+    }
+
+    .d-yes {
+      display: none !important;
+    }
+
+    @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+    .search-box {
+      border: solid 3px #9c9fa6;
+      display: inline-block;
+      position: relative;
+      margin-top: 0px;
+      border-radius: 35px;
+      max-height: 27px;
+    }
+
+    .search-box input[type=text] {
+      font-family: Raleway, sans-serif;
+      font-size: 20px;
+      width: 20px;
+      height: 18px;
+      padding: 5px 10px 5px 10px;
+      border: none;
+      box-sizing: border-box;
+      border-radius: 50px;
+      transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+    }
+
+    .search-box input[type=text]:focus {
+      outline: none;
+    }
+
+    .search-box input[type=text]:focus,
+    .search-box input[type=text]:not(:placeholder-shown) {
+      width: 500px;
+      transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .search-box input[type=text]:focus+button[type=reset],
+    .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+
+      bottom: 13px;
+      right: 10px;
+      transition: bottom 150ms ease-out 800ms, right 150ms ease-out 800ms;
+    }
+
+    .search-box input[type=text]:focus+button[type=reset]:after,
+    .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+      top: 10px;
+      right: 10px;
+      opacity: 1;
+      transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+    }
+
+    .search-box input[type=text]:focus+button[type=reset]:before,
+    .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:before {
+      top: 10px;
+      right: 10px;
+      opacity: 1;
+      transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease-out 950ms;
+
+    }
+
+    .search-box button[type=reset] {
+      background-color: transparent;
+      width: 15px;
+      height: 15px;
+      border: 0;
+      padding: 0;
+      outline: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: -11.5px;
+      right: -12px;
+      transition: bottom 150ms ease-out 150ms, right 150ms ease-out 150ms;
+    }
+
+    .search-box button[type=reset]:before,
+    .search-box button[type=reset]:after {
+      content: "";
+      height: 15px;
+      border-left: solid 4px #9c9fa6;
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+
+    .search-box button[type=reset]:after {
+      transform: rotate(45deg);
+      opacity: 0;
+      top: -20px;
+      right: -10px;
+      transition: top 150ms ease-out, right 150ms ease-out, opacity 150ms ease-out;
+    }
+
+
+
+    @media all and (max-width: 1483px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 400px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 1383px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 300px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 1268px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 200px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 1155px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 150px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 950px) {
+
+      .searnew {
+        display: none;
+      }
+
+      .dis {
+        display: inline;
+      }
+
+    }
+
+    @media all and (max-width: 950px) {
+
+      .searnew {
+        display: none;
+      }
+
+      .dis {
+        display: inline;
+      }
+
+      .d-no {
+        display: none;
+      }
+
+      .d-yes {
+        display: block !important;
+      }
+
+      .whi {
+        margin-top: 40px !important;
+      }
+
+    }
+
+    @media all and (max-width: 950px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 450px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 791px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 350px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      .te {
+        margin-right: 15px;
+      }
+
+    }
+
+    @media all and (max-width: 685px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 250px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      .te {
+        width: 100px !important;
+        padding: 10px 0px;
+        font-size: 13px;
+      }
+    }
+
+    @media all and (max-width: 545px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 150px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+
+    @media all and (max-width: 470px) {
+      .not {
+        margin-left: 0px !important;
+      }
+    }
+
+    @media all and (max-width: 425px) {
+
+      .search-box input[type=text]:focus,
+      .search-box input[type=text]:not(:placeholder-shown) {
+        width: 105px;
+        transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
+        <div class="col-md-12 p-0 m-0">
+          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+            <div class="ps-lg-1">
+              <div class="d-flex align-items-center justify-content-between">
+                <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
+                <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <a href="https://www.bootstrapdash.com/product/purple-bootstrap-admin-template/"><i class="mdi mdi-home me-3 text-white"></i></a>
+              <button id="bannerClose" class="btn border-0 p-0">
+                <i class="mdi mdi-close text-white me-0"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="">TechSocket</a>
+        <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg'%}" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+        <ul class="navbar-nav navbar-nav-left">
+
+          <li class="nav-item dropdown d-no" style="float:left !important ;">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+              data-bs-toggle="dropdown">
+              <i class="mdi mdi-bell-outline"></i>
+              <span class="count-symbol bg-danger"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <h6 class="p-3 mb-0">Notifications</h6>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="mdi mdi-calendar"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                  <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="mdi mdi-settings"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                  <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="mdi mdi-link-variant"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                  <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-settings  d-lg-block searnew">
+            <div class="box ">
+              <form class="search-box ">
+                <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+                <button type="reset"></button>
+              </form>
+            </div>
+          </li>
+
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <div class="nav-profile-img">
+                <img src="{% static 'images/faces/face1.jpg'%}" alt="image">
+                <span class="availability-status online"></span>
+              </div>
+              <div class="nav-profile-text">
+                <p class="mb-1 text-black">Harika Vedula</p>
+              </div>
+            </a>
+            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+            </div>
+          </li>
+
+          <li class="nav-item nav-settings d-no d-lg-block">
+            <a class="nav-link" href="/techquery">
+              <button class="btn btn-gradient-light btn-rounded btn-fw"> Tech Query</button>
+            </a>
+          </li>
+          <li class="nav-item nav-settings  d-lg-block">
+            <a class="nav-link" href="/personaldm">
+              <i class="mdi mdi-facebook-messenger"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-settings  d-lg-block">
+            <a class="nav-link" href="#">
+              <i class="mdi mdi-format-line-spacing"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top  d-yes"
+      style="margin-top:70px !important ;">
+
+      <div style="width:100% ;">
+        <div style="float:left !important ; max-width:80px;color: #9c9fa6 !important;">
+
+          <a class="nav-link count-indicator " id="notificationDropdown" href="#" data-bs-toggle="dropdown"
+            style="text-decoration: none;">
+            <i class="mdi mdi-bell-outline not"
+              style="color: #9c9fa6 !important;font-size: 25px;margin-left: 10px;"></i>
+            <span class="count-symbol bg-danger"></span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+            aria-labelledby="notificationDropdown">
+            <h6 class="p-3 mb-0">Notifications</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-success">
+                  <i class="mdi mdi-calendar"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
+                <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-warning">
+                  <i class="mdi mdi-settings"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                <p class="text-gray ellipsis mb-0"> Update dashboard </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <div class="preview-icon bg-info">
+                  <i class="mdi mdi-link-variant"></i>
+                </div>
+              </div>
+              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                <p class="text-gray ellipsis mb-0"> New admin wow! </p>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+          </div>
+        </div>
+        <div style="float: right ; max-width:250px; margin-top: 0px;">
+          <a class="nav-link" style="padding-top: 0px !important;" href="/techquery">
+            <button class="btn btn-gradient-light btn-rounded btn-fw te"> Tech Query</button>
+          </a>
+        </div>
+        <div class="box " style="float:right ; margin-top: 5px;">
+          <form class="search-box ">
+            <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+            <button type="reset"></button>
+          </form>
+        </div>
+
+
+
+
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas whi" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="{% static 'images/faces/face1.jpg'%}" alt="profile">
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">Harika Vedula</span>
+                <span class="text-secondary text-small">Project Manager</span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/index">
+              <span class="menu-title  ">Home</span>
+              <i class="mdi mdi-home menu-icon "></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/mentions">
+              <span class="menu-title">Mentions</span>
+              <i class="mdi mdi-mail-ru menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/teamoverview">
+              <span class="menu-title">Team Overview</span>
+              <i class="mdi mdi-account-multiple menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/people">
+              <span class="menu-title">People</span>
+              <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/incentives">
+              <span class="menu-title ">Incentives</span>
+              <i class="mdi mdi-currency-usd menu-icon "></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/felicitations">
+              <span class="menu-title active">Felicitations</span>
+              <i class="mdi mdi-star menu-icon active"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/awards">
+              <span class="menu-title">Awards/Nominations</span>
+              <i class="mdi mdi-trophy-variant menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/talentassesments">
+              <span class="menu-title">Talent Assesments</span>
+              <i class="mdi mdi-spellcheck menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rewards">
+              <span class="menu-title">Rewards</span>
+              <i class="mdi mdi-certificate menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/goals">
+              <span class="menu-title">Goals</span>
+              <i class="mdi mdi-calendar-text menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/feedback">
+              <span class="menu-title">Feedback</span>
+              <i class="mdi mdi-comment-processing-outline menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/queries">
+              <span class="menu-title">Queries</span>
+              <i class="mdi mdi-comment-alert menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-spellcheck menu-icon"></i>
+              </span>Talent Assesments
+            </h3>
+
+          </div>
+
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="table-responsive">
+                    <table class="table" id="myTable">
+                      <thead>
+                        <!-- <tr>
+                                                    <th> Name </th>
+                                                    <th> Profile </th>
+                                                    <th> Join date </th>
+                                                    <th> Contact </th>
+                                                </tr> -->
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face1.jpg'%}" class="me-2" alt="image"> Python
+                          </td>
+
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
+                          </td>
+
+                          <!-- <td>
+
+                                                        <a href="#" style="text-decoration: none;">
+                                                            <i class="mdi mdi-whatsapp"
+                                                                style="font-size:30px ;color:black;"></i>
+                                                        </a>
+                                                        <a href="#" style="text-decoration: none;">
+                                                            <i class="mdi mdi-facebook-box"
+                                                                style="font-size:30px ;color:black;"></i>
+                                                        </a>
+                                                        <a href="#" style="text-decoration: none;">
+                                                            <i class="mdi mdi-twitter-box"
+                                                                style="font-size:30px ;color:black;"></i>
+                                                        </a>
+                                                        <a href="#" style="text-decoration: none;">
+                                                            <i class="mdi mdi-linkedin-box"
+                                                                style="font-size:30px ;color:black;"></i>
+                                                        </a> -->
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face30.jpg'%}" class="me-2" alt="image">C++
+                          </td>
+                          <!-- <td> Won the employee of the month </td> -->
+                          <!-- <td>
+                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
+                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face31.jpg'%}" class="me-2" alt="image">Java
+                          </td>
+                          <!-- <td> Got prommoted to senior UX designer </td> -->
+                          <!-- <td>
+                                                        <label class="badge badge-gradient-info">ON HOLD</label>
+                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face21.jpg'%}" class="me-2" alt="image">Data Structures
+                          </td>
+                          <!-- <td> New Recruit in our family </td> -->
+                          <!-- <td>
+                                                        <label class="badge badge-gradient-danger">REJECTED</label>
+                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face19.jpg'%}" class="me-2" alt="image"> Pandas
+                          </td>
+                          <!-- <td> Completed his first project </td> -->
+                          <!-- <td>
+                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
+                                                                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face18.jpg'%}" class="me-2" alt="image"> React
+                          </td>
+                          <!-- <td> Celebrating his first year Work Anniversary </td> -->
+                          <!-- <td>
+                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
+                                                                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="{% static 'images/faces/face24.jpg'%}" class="me-2" alt="image"> Django
+                          </td>
+                          <!-- <td> Celebrating his birthday </td> -->
+                          <!-- <td>
+                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
+                                                                                                    </td> -->
+                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
+
+                          <td>
+                            <a href="#" style="text-decoration: none;">
+                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <!-- <footer class="footer">
+          <div class="container-fluid d-flex justify-content-between">
+            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com
+              2021</span>
+            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
+                href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
+                template</a> from Bootstrapdash.com</span>
+          </div>
+        </footer> -->
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{%static 'vendors/chart.js/Chart.min.js'%}"></script>
+  <script src="{%static 'js/jquery.cookie.js'%}" type="text/javascript"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{%static 'js/off-canvas.js'%}"></script>
+  <script src="{%static 'js/hoverable-collapse.js'%}"></script>
+  <script src="{%static 'js/misc.js'%}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="{%static 'js/dashboard.js'%}"></script>
+  <script src="{%static 'js/todolist.js'%}"></script>
+  <!-- End custom js for this page -->
+  <script>
+    function myFunction() {
+
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
