@@ -644,49 +644,12 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-danger card-img-holder text-white">
-                                <div class="card-body" style="padding-bottom: 5px !important ;">
-                                    <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
-                                        <span class="font-weight-normal mb-3"
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
-                                        <!--change to offline or busy as needed-->
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 "
-                                            style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-whatsapp" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-facebook-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
+                
+                               
+                                     
+                                 <div class="row">
+                                    {%for x in team%}
                         <div class="col-md-4 stretch-card grid-margin">
                             <div class="card bg-gradient-info card-img-holder text-white">
                                 <div class="card-body" style="padding-bottom: 5px !important ;">
@@ -696,14 +659,14 @@
                                         <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
                                         <span class="font-weight-normal mb-3"
                                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
+                                    {{x.user_name}}</span>
                                         <!--change to offline or busy as needed-->
                                     </div>
                                     <br>
                                     <div class="mb-0 flex-grow">
                                         <p class="mb-0 "
                                             style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
+                                            {{x.designation}}<br> Since {{x.join_year}} {{x.join_month}} {{x.join_date}}
                                         </p>
                                     </div>
                                     <br>
@@ -721,7 +684,7 @@
                                         <a href="#" style="float: right;">
                                             <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
                                         </a>
-                                        <a href="#" style="float: right;">
+                                        <a href="{{x.LinkedIn}}" style="float: right;">
                                             <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
                                         </a>
 
@@ -729,182 +692,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-success card-img-holder text-white">
-                                <div class="card-body" style="padding-bottom: 5px !important ;">
-                                    <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
-                                        <span class="font-weight-normal mb-3"
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
-                                        <!--change to offline or busy as needed-->
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 "
-                                            style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-whatsapp" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-facebook-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-info card-img-holder text-white">
-                                <div class="card-body" style="padding-bottom: 5px !important ;">
-                                    <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
-                                        <span class="font-weight-normal mb-3"
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
-                                        <!--change to offline or busy as needed-->
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 "
-                                            style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-whatsapp" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-facebook-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-success card-img-holder text-white">
-                                <div class="card-body" style="padding-bottom: 5px !important ;">
-                                    <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
-                                        <span class="font-weight-normal mb-3"
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
-                                        <!--change to offline or busy as needed-->
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 "
-                                            style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-whatsapp" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-facebook-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-danger card-img-holder text-white">
-                                <div class="card-body" style="padding-bottom: 5px !important ;">
-                                    <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
-                                        alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
-                                        <span class="font-weight-normal mb-3"
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
-                                            Visitors Online</span>
-                                        <!--change to offline or busy as needed-->
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 "
-                                            style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
-                                            Project Manager Since 2021 July 22
-                                        </p>
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <a href="#">
-                                            <i class="mdi mdi-heart-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-whatsapp" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-facebook-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-twitter-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-                                        <a href="#" style="float: right;">
-                                            <i class="mdi mdi-linkedin-box" style="font-size:30px ;color:black;"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        {%endfor%}
                     </div>
+                                        
+                                      
+                               
 
-                </div>
+                       
+
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <!-- <footer class="footer">

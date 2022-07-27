@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
        'CLIENT':{
-           "name": 'sampledb',
+           "name": 'employee',
            "host": 'mongodb+srv://HarikaVedula:' + urllib.parse.quote('harika') + '@empengage.d7uvb.mongodb.net/?retryWrites=true&w=majority',
            "username": 'HarikaVedula',
            "password": 'harika',

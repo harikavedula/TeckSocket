@@ -275,6 +275,7 @@
 </head>
 
 <body>
+   
     <div class="container-scroller">
         <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
@@ -882,16 +883,18 @@
                                                 </tr>
                                             </thead> -->
                                             <tbody>
+                                                    {%for x in users%}
                                                 <tr>
+                                                   
                                                     <td>
                                                         <img src="{% static 'images/faces/face1.jpg'%}" class="me-2"
-                                                            alt="image"> Harika Vedula
+                                                            alt="image"> {{x.first_name}}
                                                     </td>
-                                                    <td>Senior Software Engineer</td>
+                                                    <td>{{x.designation}}</td>
                                                     <!-- <td>
                                                         <label class="badge badge-gradient-success">DONE</label>
                                                     </td> -->
-                                                    <td> Dec 5, 2017 </td>
+                                                    <td> {{x.join_date_no}} {{x.join_month}}  {{x.join_year}}</td>
                                                     <td>
                                                         <a href="#" style="text-decoration: none;">
                                                             <i class="mdi mdi-heart-box"
@@ -915,205 +918,16 @@
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
+                                               
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face30.jpg'%}" class="me-2"
-                                                            alt="image"> Anudeep Sirise
-                                                    </td>
-                                                    <td> Data Analyst </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                    </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face31.jpg'%}" class="me-2"
-                                                            alt="image"> Koushal Vadrevu
-                                                    </td>
-                                                    <td> UX and UI designer </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-info">ON HOLD</label>
-                                                    </td> -->
-                                                    <td> Dec 16, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face21.jpg'%}" class="me-2"
-                                                            alt="image"> John Doe
-                                                    </td>
-                                                    <td> HR </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-danger">REJECTED</label>
-                                                    </td> -->
-                                                    <td> Dec 3, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face19.jpg'%}" class="me-2"
-                                                            alt="image"> Yaswanth
-                                                    </td>
-                                                    <td> Backend Developer </td>
+                                                
                                                     <!-- <td>
                                                                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                                                                     </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face18.jpg'%}" class="me-2"
-                                                            alt="image"> Hima
-                                                    </td>
-                                                    <td> Manager </td>
-                                                    <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face24.jpg'%}" class="me-2"
-                                                            alt="image"> Raghava
-                                                    </td>
-                                                    <td> Data Scientist </td>
-                                                    <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                                                    <td> Dec 12, 2017 </td>
-                                                    <td><a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                 
+                                             
+                                               {%endfor%}
+                                                      
                                             </tbody>
                                         </table>
                                     </div>
@@ -1140,6 +954,7 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
