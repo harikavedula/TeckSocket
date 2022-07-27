@@ -33,4 +33,5 @@ urlpatterns = [
     path('feedback/', views.feedback, name="feedback"),
     path('queries/', views.queries, name="queries"),
     path('personaldm/', views.personaldm, name="personaldm"),
+    path('techquery/', views.techquery, name="techquery"),
 ]

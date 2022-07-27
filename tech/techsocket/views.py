@@ -74,3 +74,7 @@ def queries(request):
 
 def personaldm(request):
     return render(request, 'personaldm.html')
+
+
+def techquery(request):
+    return render(request, 'techquery.html')
