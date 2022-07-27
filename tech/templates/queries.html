@@ -155,7 +155,7 @@
               <a class="dropdown-item" href="#">
                 <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'logout' %}">
+              <a class="dropdown-item" href="#">
                 <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
             </div>
           </li>
@@ -385,8 +385,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="/index">
-              <span class="menu-title active ">Home</span>
-              <i class="mdi mdi-home menu-icon active "></i>
+              <span class="menu-title  ">Home</span>
+              <i class="mdi mdi-home menu-icon "></i>
             </a>
           </li>
           <li class="nav-item">
@@ -409,8 +409,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/incentives">
-              <span class="menu-title">Incentives</span>
-              <i class="mdi mdi-currency-usd menu-icon"></i>
+              <span class="menu-title ">Incentives</span>
+              <i class="mdi mdi-currency-usd menu-icon "></i>
             </a>
           </li>
           <li class="nav-item">
@@ -451,8 +451,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/queries">
-              <span class="menu-title">Queries</span>
-              <i class="mdi mdi-comment-alert menu-icon"></i>
+              <span class="menu-title active">Queries</span>
+              <i class="mdi mdi-comment-alert menu-icon active"></i>
             </a>
           </li>
           <!-- <li class="nav-item">
@@ -535,8 +535,8 @@
           <div class="page-header">
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-home"></i>
-              </span> Feed
+                <i class="mdi mdi-comment-alert"></i>
+              </span> Queries
             </h3>
             <nav aria-label="breadcrumb">
               <ul class="breadcrumb">
@@ -598,7 +598,8 @@
                               <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
                             </div>
                             <div class="form-group">
-                              <label for="exampleTextarea1">Techie coins per person</label>
+                              <label for="exampleTextarea1">Techie coins per
+                                person</label>
                               <div class="input-group">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text bg-gradient-primary text-white">$</span>
@@ -613,7 +614,8 @@
                               <label for="exampleInputName1">Skills</label>
                               <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
                             </div>
-                            <button type="submit" class="btn btn-gradient-primary me-2">Send Recognition</button>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Send
+                              Recognition</button>
                             <button class="btn btn-light">Cancel</button>
                           </form>
                         </div>
@@ -625,154 +627,7 @@
             </nav>
           </div>
 
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
 
-                    <span
-                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                      Anudeep
-                      Sirise </span>&nbsp;&nbsp;<span
-                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                      Recognised Harika Vedula</span>
-                  </p>
-                  <br>
-                  <div class="mb-0 flex-grow">
-                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
-                      distracted either
-                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                      also the leap into
-                      electronic typesetting, remaining essentially unchanged. </p>
-                  </div>
-                  <br>
-                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
-                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
-
-                    <span
-                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                      Anudeep
-                      Sirise </span>&nbsp;&nbsp;<span
-                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                      Recognised Harika Vedula</span>
-                  </p>
-                  <br>
-                  <div class="mb-0 flex-grow">
-                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
-                      distracted either
-                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                      also the leap into
-                      electronic typesetting, remaining essentially unchanged. </p>
-                  </div>
-                  <br>
-                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
-                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
-
-                    <span
-                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                      Anudeep
-                      Sirise </span>&nbsp;&nbsp;<span
-                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                      Recognised Harika Vedula</span>
-                  </p>
-                  <br>
-                  <div class="mb-0 flex-grow">
-                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
-                      distracted either
-                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                      also the leap into
-                      electronic typesetting, remaining essentially unchanged. </p>
-                  </div>
-                  <br>
-                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
-                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
-
-                    <span
-                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                      Anudeep
-                      Sirise </span>&nbsp;&nbsp;<span
-                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                      Recognised Harika Vedula</span>
-                  </p>
-                  <br>
-                  <div class="mb-0 flex-grow">
-                    <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a reader will be
-                      distracted either
-                      by the readable content of a page or with your beautiful smile.Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                      type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                      also the leap into
-                      electronic typesetting, remaining essentially unchanged. </p>
-                  </div>
-                  <br>
-                  <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
-                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
-                  </div>
-
-
-
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
         <!-- content-wrapper ends -->

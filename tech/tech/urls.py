@@ -32,4 +32,5 @@ urlpatterns = [
     path('rewards/', views.rewards, name="rewards"),
     path('feedback/', views.feedback, name="feedback"),
     path('queries/', views.queries, name="queries"),
+    path('personaldm/', views.personaldm, name="personaldm"),
 ]
