@@ -1,5 +1,7 @@
+from email.policy import default
 from xmlrpc.client import Boolean
 from django.db import models
+from django.forms import IntegerField
 
 class User(models.Model):
     user_id=models.CharField(max_length=8)
@@ -20,6 +22,7 @@ class UserDetails(models.Model):
     join_month=models.TextField(default=0)
     join_date_no=models.TextField(default=0)
     social_media=models.TextField(default=0)
+    techie_coins=models.IntegerField(default=100)
 
 class Birthdays(models.Model):
     birth_day=models.CharField(max_length=5)

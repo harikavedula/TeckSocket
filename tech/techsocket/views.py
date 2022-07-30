@@ -101,8 +101,7 @@ def teamoverview(request):
             d['no']=sum
             for y in p:
                 
-                if 'LinkedIn' in y.social_media:
-                        d['LinkedIn']=y.social_media['LinkedIn']
+                
                 d['user_name']=y.first_name+" "+y.last_name
                 d['designation']=y.designation
                 d['join_month']=y.join_month

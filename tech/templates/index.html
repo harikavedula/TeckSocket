@@ -17,8 +17,12 @@
   <!-- endinject -->
   <!-- Layout styles -->
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/style1.css'%}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <style>
     .active {
       color: #b66dff !important;
@@ -561,15 +565,15 @@
                           <form autocomplete="off" class="forms-sample" action="/sendrecognition/" method="post">
                             <div class="form-group autocomplete">
                               <label for="exampleInputName1">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName1"  placeholder="Name" onblur="myFunction()">
+                              <input type="text" class="form-control" id="exampleInputName1"  placeholder="name" onblur="myFunction()">
                             </div>
                           
                             <div class="form-group">
                               <label for="exampleTextarea1">Message</label>
-                              <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                              <textarea class="form-control" id="exampleTextarea1" rows="4" name="message"></textarea>
                             </div>
                             <div class="form-group">
-                              <label for="exampleTextarea1">Techie coins per person</label>
+                              <label for="exampleTextarea1" name="coins">Techie coins per person</label>
                               <div class="input-group">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text bg-gradient-primary text-white">$</span>
@@ -582,7 +586,14 @@
                             </div>
                             <div class="form-group">
                               <label for="exampleInputName1">Skills</label>
-                              <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                              <select multiple="multiple" id="myMulti">
+                                <option>Item 1</option>
+                                <option>item 2</option>
+                                <option>item 3</option>
+                                <option>item 4</option>
+                              </select>
+<!--                               
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="Skills"> -->
                             </div>
                             <button type="submit" class="btn btn-gradient-primary me-2">Send Recognition</button>
                             <button class="btn btn-light">Cancel</button>
@@ -768,6 +779,7 @@
   <script src="{%static 'js/off-canvas.js'%}"></script>
   <script src="{%static 'js/hoverable-collapse.js'%}"></script>
   <script src="{%static 'js/misc.js'%}"></script>
+  <script src="{%static 'js/index.js'%}"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="{%static 'js/dashboard.js'%}"></script>
