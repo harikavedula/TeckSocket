@@ -275,7 +275,7 @@
 </head>
 
 <body>
-   
+
     <div class="container-scroller">
         <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
@@ -785,7 +785,8 @@
                                                     style="font-size: 23px !important;"></i></p>
                                         </div>
                                     </a>
-                                    <div class="dropdown-menu navbar-dropdown" aria-labelledby="RecognitionDropdown"
+                                    <div class="dropdown-menu navbar-dropdown" id="Dropdown"
+                                        aria-labelledby="RecognitionDropdown"
                                         style="width: 300% !important; right: 0 ;">
                                         <div class="col-12 grid-margin stretch-card">
                                             <div class="card">
@@ -883,9 +884,9 @@
                                                 </tr>
                                             </thead> -->
                                             <tbody>
-                                                    {%for x in users%}
+                                                {%for x in users%}
                                                 <tr>
-                                                   
+
                                                     <td>
                                                         <img src="{% static 'images/faces/face1.jpg'%}" class="me-2"
                                                             alt="image"> {{x.first_name}}
@@ -894,7 +895,7 @@
                                                     <!-- <td>
                                                         <label class="badge badge-gradient-success">DONE</label>
                                                     </td> -->
-                                                    <td> {{x.join_date_no}} {{x.join_month}}  {{x.join_year}}</td>
+                                                    <td> {{x.join_date_no}} {{x.join_month}} {{x.join_year}}</td>
                                                     <td>
                                                         <a href="#" style="text-decoration: none;">
                                                             <i class="mdi mdi-heart-box"
@@ -918,16 +919,16 @@
                                                                 style="font-size:30px ;color:black;"></i>
                                                         </a>
                                                     </td>
-                                               
+
                                                 </tr>
-                                                
-                                                    <!-- <td>
+
+                                                <!-- <td>
                                                                                                         <label class="badge badge-gradient-warning">PROGRESS</label>
                                                                                                     </td> -->
-                                                 
-                                             
-                                               {%endfor%}
-                                                      
+
+
+                                                {%endfor%}
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -992,6 +993,17 @@
                 }
             }
         }
+    </script>
+    <script>
+        function btnToggle() {
+            document.getElementById("Dropdown").classList.toggle("show");
+        }
+
+        // Prevents menu from closing when clicked inside
+        document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+            event.stopPropagation();
+        });
     </script>
     <!-- End custom js for this page -->
 </body>

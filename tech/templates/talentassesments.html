@@ -535,8 +535,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/felicitations">
-              <span class="menu-title active">Felicitations</span>
-              <i class="mdi mdi-star menu-icon active"></i>
+              <span class="menu-title ">Felicitations</span>
+              <i class="mdi mdi-star menu-icon "></i>
             </a>
           </li>
           <li class="nav-item">
@@ -547,8 +547,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/talentassesments">
-              <span class="menu-title">Talent Assesments</span>
-              <i class="mdi mdi-spellcheck menu-icon"></i>
+              <span class="menu-title active">Talent Assesments</span>
+              <i class="mdi mdi-spellcheck menu-icon active"></i>
             </a>
           </li>
           <li class="nav-item">
@@ -793,6 +793,17 @@
         }
       }
     }
+  </script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
   </script>
 </body>
 

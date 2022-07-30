@@ -564,6 +564,17 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
+  </script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{%static 'vendors/chart.js/Chart.min.js'%}"></script>

@@ -23,10 +23,11 @@
     .active {
       color: #b66dff !important;
     }
-    
-.uyt{
-  display: none !important;
-}
+
+    .uyt {
+      display: none !important;
+    }
+
     .d-yes {
       display: none !important;
     }
@@ -801,7 +802,7 @@
                           style="font-size: 23px !important;"></i></p>
                     </div>
                   </a>
-                  <div class="dropdown-menu navbar-dropdown" aria-labelledby="RecognitionDropdown"
+                  <div class="dropdown-menu navbar-dropdown" id="Dropdown" aria-labelledby="RecognitionDropdown"
                     style="width: 300% !important; right: 0 ;">
                     <div class="col-12 grid-margin stretch-card">
                       <div class="card">
@@ -992,6 +993,17 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
+  </script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{%static 'vendors/chart.js/Chart.min.js'%}"></script>

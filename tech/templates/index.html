@@ -22,7 +22,7 @@
   <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <style>
     .active {
       color: #b66dff !important;
@@ -60,7 +60,7 @@
 
 <body>
   {% for x in userdetails %}
-  
+
   <div class="container-scroller">
     <!-- <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
@@ -383,7 +383,7 @@
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">{{x.first_name}}  {{x.last_name}}</span>
+                <span class="font-weight-bold mb-2">{{x.first_name}} {{x.last_name}}</span>
                 <span class="text-secondary text-small">{{x.designation}}</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -556,7 +556,7 @@
                           style="font-size: 23px !important;"></i></p>
                     </div>
                   </a>
-                  <div class="dropdown-menu navbar-dropdown" aria-labelledby="RecognitionDropdown"
+                  <div class="dropdown-menu  navbar-dropdown" id="Dropdown" aria-labelledby="RecognitionDropdown"
                     style="width: 300% !important; right: 0 ;">
                     <div class="col-12 grid-margin stretch-card">
                       <div class="card">
@@ -565,9 +565,10 @@
                           <form autocomplete="off" class="forms-sample" action="/sendrecognition/" method="post">
                             <div class="form-group autocomplete">
                               <label for="exampleInputName1">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName1"  placeholder="name" onblur="myFunction()">
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="name"
+                                onblur="myFunction()">
                             </div>
-                          
+
                             <div class="form-group">
                               <label for="exampleTextarea1">Message</label>
                               <textarea class="form-control" id="exampleTextarea1" rows="4" name="message"></textarea>
@@ -592,7 +593,7 @@
                                 <option>item 3</option>
                                 <option>item 4</option>
                               </select>
-<!--                               
+                              <!--                               
                               <input type="text" class="form-control" id="exampleInputName1" placeholder="Skills"> -->
                             </div>
                             <button type="submit" class="btn btn-gradient-primary me-2">Send Recognition</button>
@@ -606,7 +607,7 @@
               </ul>
             </nav>
           </div>
-{%for x in posts%}
+          {%for x in posts%}
           <div class="row">
             <div class="col-12 grid-margin">
               <div class="card">
@@ -617,9 +618,8 @@
                     <span
                       style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
                       {{x.user_name}}
-                     </span>&nbsp;&nbsp;<span
-                      style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                      Recognised    &nbsp;{{x.mention}}</span>
+                    </span>&nbsp;&nbsp;<span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      Recognised &nbsp;{{x.mention}}</span>
                   </p>
                   <br>
                   <div class="mb-0 flex-grow">
@@ -636,8 +636,8 @@
             </div>
           </div>
           {%endfor%}
-         
-               
+
+
 
         </div>
         <!-- content-wrapper ends -->
@@ -665,65 +665,65 @@
       the text field element and an array of possible autocompleted values:*/
       var currentFocus;
       /*execute a function when someone writes in the text field:*/
-      inp.addEventListener("input", function(e) {
-          var a, b, i, val = this.value;
-          /*close any already open lists of autocompleted values*/
-          closeAllLists();
-          if (!val) { return false;}
-          currentFocus = -1;
-          /*create a DIV element that will contain the items (values):*/
-          a = document.createElement("DIV");
-          a.setAttribute("id", this.id + "autocomplete-list");
-          a.setAttribute("class", "autocomplete-items");
-          /*append the DIV element as a child of the autocomplete container:*/
-          this.parentNode.appendChild(a);
-          /*for each item in the array...*/
-          for (i = 0; i < arr.length; i++) {
-            /*check if the item starts with the same letters as the text field value:*/
-            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-              /*create a DIV element for each matching element:*/
-              b = document.createElement("DIV");
-              /*make the matching letters bold:*/
-              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-              b.innerHTML += arr[i].substr(val.length);
-              /*insert a input field that will hold the current array item's value:*/
-              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-              /*execute a function when someone clicks on the item value (DIV element):*/
-              b.addEventListener("click", function(e) {
-                  /*insert the value for the autocomplete text field:*/
-                  inp.value = this.getElementsByTagName("input")[0].value;
-                  /*close the list of autocompleted values,
-                  (or any other open lists of autocompleted values:*/
-                  closeAllLists();
-              });
-              a.appendChild(b);
-            }
+      inp.addEventListener("input", function (e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+          /*check if the item starts with the same letters as the text field value:*/
+          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            /*create a DIV element for each matching element:*/
+            b = document.createElement("DIV");
+            /*make the matching letters bold:*/
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);
+            /*insert a input field that will hold the current array item's value:*/
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            b.addEventListener("click", function (e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+            });
+            a.appendChild(b);
           }
+        }
       });
       /*execute a function presses a key on the keyboard:*/
-      inp.addEventListener("keydown", function(e) {
-          var x = document.getElementById(this.id + "autocomplete-list");
-          if (x) x = x.getElementsByTagName("div");
-          if (e.keyCode == 40) {
-            /*If the arrow DOWN key is pressed,
-            increase the currentFocus variable:*/
-            currentFocus++;
-            /*and and make the current item more visible:*/
-            addActive(x);
-          } else if (e.keyCode == 38) { //up
-            /*If the arrow UP key is pressed,
-            decrease the currentFocus variable:*/
-            currentFocus--;
-            /*and and make the current item more visible:*/
-            addActive(x);
-          } else if (e.keyCode == 13) {
-            /*If the ENTER key is pressed, prevent the form from being submitted,*/
-            e.preventDefault();
-            if (currentFocus > -1) {
-              /*and simulate a click on the "active" item:*/
-              if (x) x[currentFocus].click();
-            }
+      inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          /*If the arrow DOWN key is pressed,
+          increase the currentFocus variable:*/
+          currentFocus++;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 38) { //up
+          /*If the arrow UP key is pressed,
+          decrease the currentFocus variable:*/
+          currentFocus--;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          if (currentFocus > -1) {
+            /*and simulate a click on the "active" item:*/
+            if (x) x[currentFocus].click();
           }
+        }
       });
       function addActive(x) {
         /*a function to classify an item as "active":*/
@@ -753,22 +753,33 @@
       }
       /*execute a function when someone clicks in the document:*/
       document.addEventListener("click", function (e) {
-          closeAllLists(e.target);
+        closeAllLists(e.target);
       });
     }
-    
-    /*An array containing all the country names in the world:*/
-    var names= JSON.parse(JSON.stringify("{{users_names}}"))
-    var names1=names.replace(/&quot;/g, "'");
-    console.log(names1)
-    var names2=names1.slice(2)
-    var names3=names2.slice(0,-2)
 
-    names4=names3.split("', '")
+    /*An array containing all the country names in the world:*/
+    var names = JSON.parse(JSON.stringify("{{users_names}}"))
+    var names1 = names.replace(/&quot;/g, "'");
+    console.log(names1)
+    var names2 = names1.slice(2)
+    var names3 = names2.slice(0, -2)
+
+    names4 = names3.split("', '")
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-   
+
     autocomplete(document.getElementById("exampleInputName1"), names4);
-</script>
+  </script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
+  </script>
   <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->

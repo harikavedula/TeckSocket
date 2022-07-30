@@ -655,6 +655,17 @@
   <script src="{%static 'js/dashboard.js'%}"></script>
   <script src="{%static 'js/todolist.js'%}"></script>
   <script src="{%static 'js/chart.js'%}"></script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
+  </script>
   <!-- End custom js for this page -->
 </body>
 
