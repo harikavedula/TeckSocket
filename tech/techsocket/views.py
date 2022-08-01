@@ -2,10 +2,11 @@ from email import message
 from django.shortcuts import render,redirect
 from .models import *
 import array as arr
-# Create your views here.
+from datetime import datetime
 from django.views.decorators.cache import cache_control
 import json
 import numpy as np
+from datetime import datetime
 @cache_control(no_cache=True, must_revalidate=True)
 def login(request):
     if request.method=='POST':
@@ -47,9 +48,9 @@ def index(request):
             r1=PostSeen.objects.filter(user_id=user)
             
             for y in r1:
-                print(1111111111)
+              
                 if y.post_id==r and y.seen=="False":
-                    print(1111111111)
+             
                     d={}
                     pr=UserDetails.objects.filter(user_id=x.user_id)
                     pr1=UserDetails.objects.filter(user_id=x.mentions)
@@ -179,6 +180,7 @@ def sendrecognition(request):
 
 
 def people(request):
+    
     if 'logged_in' in request.session:
         user_details=UserDetails.objects.filter()
         context={
@@ -192,11 +194,82 @@ def incentives(request):
 
 
 def felicitations(request):
-    return render(request, 'felicitations.html')
+    if 'logged_in' in request.session:
+        ach=Achievements.objects.filter()
+        now=datetime.now()
+        now_month=now.strftime("%m")
+        now_year=now.strftime("%Y")
+        l=[]
+        h1=int(now_year+now_month)
+        print(now_month)
+        print(now_year)
+        # print(h1)
+        for x in ach:
+            
+            p=x.month
+            p1=x.year
+            h2=int(p1+p)
+            print(h2)
+            if(h1==h2):
+                print(111)
+                d={}
+                d['user_id']=x.user_id
+                d['achievement']=x.achievement_name
+                ach1=UserDetails.objects.filter(user_id=x.user_id)
+                for y in ach1:
+                    d['name']=y.first_name+" "+y.last_name
+                l.append(d)
+        data={
+            'achievements':l
+        }
+        return render(request, 'felicitations.html',data)
 
 
 def awards(request):
-    return render(request, 'awards.html')
+    if 'logged_in' in request.session:
+        if request.method=='POST':
+            
+            print(request.POST['award'])
+            award=1
+            user1=request.POST['name'][-7:]
+            user2=user1[0:6]
+            x=Nominations.objects.filter(award_id=award)
+            c=0
+            for i in x:
+                c=i.no_of_nominations
+            c+=1
+            Nominations.objects.filter(award_id=award).update(no_of_nominations=c)
+            x1=Nominate.objects.filter(award_id=award)
+            if len(x1)==0:
+                Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+            else:
+                x2=Nominate.objects.filter(award_id=award,user_id=user2)
+                if len(x2)==0:
+                    Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+                else:
+                    Nominate.objects.filter(award_id=award,user_id=user2).update(no_of_nominations=len(x2)+1)
+
+        date_now=datetime.now()
+        date_present=date_now.strftime("%m/%d/%Y")
+        nominations=Nominations.objects.filter()
+        user=request.session['user_id']
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l=[]
+        for x in nominations:
+            d={}
+            d['award_name']=x.award_name
+            d['nominated']=x.no_of_nominations
+            l.append(d)
+        l1=[]
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l1.append(ans)
+        l11=json.dumps(l1)
+        data={
+            'awards':l,
+            'users_names':l11
+        }
+        return render(request, 'awards.html',data)
 
 
 def talentassesments(request):
