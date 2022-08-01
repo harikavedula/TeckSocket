@@ -23,6 +23,8 @@
 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
+    rel="stylesheet">
   <style>
     .comment {
       width: 30%;
@@ -156,7 +158,11 @@
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
               aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="{% static 'images/faces/Harika.jpg'%}" alt="image">
+                {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image">
+                {% endwith %}
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
@@ -384,7 +390,11 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="{% static 'images/faces/face1.jpg'%}" alt="profile">
+                {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image">
+                {% endwith %}
                 <span class="login-status online"></span>
                 <!--change to offline or busy as needed-->
               </div>
@@ -619,8 +629,11 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
+                  <p class="card-title">{% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                    <img src="{% static image_static %}" class="img-sm rounded-circle me-3" alt="image">
+                    {% endwith %}
 
                     <span
                       style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">

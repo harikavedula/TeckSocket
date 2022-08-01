@@ -19,13 +19,51 @@
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
+    rel="stylesheet">
   <style>
+    .stretch-card {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      /* display: flex; */
+      -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      margin: 40px auto;
+      -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+      /* justify-content: stretch; */
+    }
+
     .active {
       color: #b66dff !important;
     }
 
     .d-yes {
       display: none !important;
+    }
+
+    .bg-g {
+      background: linear-gradient(to right, rgb(255, 255, 255), rgb(217 191 224));
+    }
+
+    .teamimg {
+      width: 95px !important;
+      height: 95px !important;
+      border-radius: 10% !important;
+      margin-left: 10px;
+    }
+
+
+    .yas {
+      transition: all 0.3s linear;
+    }
+
+    .yas:hover {
+      -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+      -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+      -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+      box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
     @media all and (max-width: 950px) {
@@ -455,78 +493,7 @@
               <i class="mdi mdi-comment-alert menu-icon"></i>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-              aria-controls="ui-basic">
-              <span class="menu-title">Basic UI Elements</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-title">Icons</span>
-              <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-title">Forms</span>
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <span class="menu-title">Charts</span>
-              <i class="mdi mdi-chart-bar menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <span class="menu-title">Tables</span>
-              <i class="mdi mdi-table-large menu-icon"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
-              aria-controls="general-pages">
-              <span class="menu-title">Sample Pages</span>
-              <i class="menu-arrow"></i>
-              <i class="mdi mdi-medical-bag menu-icon"></i>
-            </a>
-            <div class="collapse" id="general-pages">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item sidebar-actions">
-            <span class="nav-link">
-              <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Projects</h6>
-              </div>
-              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-              <div class="mt-4">
-                <div class="border-bottom">
-                  <p class="text-secondary">Categories</p>
-                </div>
-                <ul class="gradient-bullet-list mt-4">
-                  <li>Free</li>
-                  <li>Pro</li>
-                </ul>
-              </div>
-            </span>
-          </li> -->
+
         </ul>
       </nav>
       <!-- partial -->
@@ -535,10 +502,86 @@
           <div class="page-header">
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-comment-processing-outline"></i>
-              </span> Give Your Feedback
+                <i class="mdi mdi-currency-usd"></i>
+              </span> <span style="font-size: 22px;">Give Your Feedback</span>&nbsp;&nbsp;&nbsp;
             </h3>
 
+          </div>
+
+
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-g card-img-holder  yas">
+              <a href="" style="text-decoration:none ;color:black">
+                <div class="card-body" style="padding-bottom: 5px !important ;">
+                  <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute" alt="circle-image" />
+                  <div><i class="fa fa-envelope-open-o" aria-hidden="true" style="font-size:25px ;"></i>
+                    <span class="font-weight-normal mb-3"
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
+                      <strong>Project Feeds</strong> </span>
+                    <!--change to offline or busy as needed-->
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
+                      <strong>Use this card for performance ...</strong>
+                    </p>
+
+                  </div>
+                  <br>
+
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-g card-img-holder  yas">
+              <a href="" style="text-decoration:none ;color:black">
+                <div class="card-body" style="padding-bottom: 5px !important ;">
+                  <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute" alt="circle-image" />
+                  <div>
+                    <i class="fa  fa-hand-rock-o" aria-hidden="true" style="font-size:25px ;"></i>
+                    <span class="font-weight-normal mb-3"
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
+                      <strong>Strengths </strong> </span>
+
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
+                      <strong>Use this card to give perspective about their skills...</strong>
+                    </p>
+
+                  </div>
+                  <br>
+
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-g card-img-holder  yas">
+              <a href="" style="text-decoration:none ;color:black">
+                <div class="card-body" style="padding-bottom: 5px !important ;">
+                  <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute" alt="circle-image" />
+                  <div><i class="fa fa-user" aria-hidden="true" style="font-size:25px ;"></i>
+                    <span class="font-weight-normal mb-3"
+                      style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
+                      <strong>Personal Feedback</strong> </span>
+
+                    <!--change to offline or busy as needed-->
+                  </div>
+                  <br>
+                  <div class="mb-0 flex-grow">
+                    <p class="mb-0 " style="font-family:'Times New Roman', Times, serif ; font-size:18px;">
+                      <strong>Give Personality Feedback</strong>
+                    </p>
+
+                  </div>
+                  <br>
+
+                </div>
+              </a>
+            </div>
           </div>
 
 
@@ -564,17 +607,6 @@
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
-  <script>
-    function btnToggle() {
-      document.getElementById("Dropdown").classList.toggle("show");
-    }
-
-    // Prevents menu from closing when clicked inside
-    document.getElementById("Dropdown").addEventListener('click', function (event) {
-
-      event.stopPropagation();
-    });
-  </script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{%static 'vendors/chart.js/Chart.min.js'%}"></script>
@@ -587,6 +619,17 @@
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="{%static 'js/dashboard.js'%}"></script>
+  <script>
+    function btnToggle() {
+      document.getElementById("Dropdown").classList.toggle("show");
+    }
+
+    // Prevents menu from closing when clicked inside
+    document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+      event.stopPropagation();
+    });
+  </script>
   <script src="{%static 'js/todolist.js'%}"></script>
   <!-- End custom js for this page -->
 </body>

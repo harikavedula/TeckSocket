@@ -545,13 +545,18 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title text-white">Todo</h4>
-                  <div class="add-items d-flex">
-                    <form action="" method="post">
-                    <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?" name="goal">
-                    <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" type="submit" id="add-task">
-                      Add</button>
-                    </form>
-                  </div>
+                  <form action="/goals/" class="forms-sample" method="post">
+
+                    <div class="add-items d-flex">
+
+                      <input type="text" class="form-control todo-list-input"
+                        placeholder="What do you need to do today?" name="goal">
+                      <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" type="submit"
+                        id="add-task">
+                        Add</button>
+
+                    </div>
+                  </form>
                   <div class="list-wrapper">
                     <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
                       <li>
