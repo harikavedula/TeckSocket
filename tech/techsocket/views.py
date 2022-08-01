@@ -50,25 +50,33 @@ def index(request):
             for y in r1:
               
                 if y.post_id==r and y.seen=="False":
-             
                     d={}
                     pr=UserDetails.objects.filter(user_id=x.user_id)
                     pr1=UserDetails.objects.filter(user_id=x.mentions)
                     for p in pr:
                         d['user_name']=p.first_name+" "+p.last_name
+                        d['mention_user_id']=p.user_id
                     for p1 in pr1:
                         d['mention']=p1.first_name+" "+p1.last_name
+                        
                     d['post']=x.post
                     l.append(d)
         PostSeen.objects.filter(user_id=user).update(seen="True")
         l11=json.dumps(l1)
         l12=json.dumps(l2)
-
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
         context={
             'userdetails':user_details,
             'posts':l,
             'users_names':l11,
             'skills':l12,
+            'notification':ln
             }
         
 
@@ -91,7 +99,7 @@ def mentions(request):
             d['post']=x.post
             for y in r1:
                 d['user_name']=y.first_name+" "+y.last_name
-
+            d['mention_user_id']=x.user_id
             l.append(d)
 
         context={
@@ -145,6 +153,7 @@ def sendrecognition(request):
         l=""
         for i in res1:
             coins2=i.techie_coins-coins
+            user_name=i.first_name+" "+i.last_name
         posts=Posts.objects.filter()
         post_no=len(posts)+1
         post_no_str=str(post_no)
@@ -175,6 +184,10 @@ def sendrecognition(request):
             len3=str(len1)
             PostSeen.objects.create(post_id=post_no,user_id=users2[i],id=len3,seen="False")
             len1+=1
+        len3=len(Notifications.objects.filter())+1
+        msg=user_name+" Recognised you"
+        msg1="You are mentioned"
+        Notifications.objects.create(notification_id=len3,notification=msg1,notification_message=msg,user_id=user,truth_value="False")
     return redirect('/index/')
     
 

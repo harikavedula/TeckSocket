@@ -890,13 +890,13 @@
                                                 </tr> -->
                                             </thead>
                                             <tbody>
+                                                {%for x in achievements%}
                                                 <tr>
                                                     <td>
                                                         <img src="{% static 'images/faces/face1.jpg'%}" class="me-2"
-                                                            alt="image"> Harika
-                                                        Vedula
+                                                            alt="image"> {{x.name}}
                                                     </td>
-                                                    <td>Completed her 25th Project as Team Lead</td>
+                                                    <td>{{x.achievement}}</td>
                                                     <td> <i class="mdi mdi-chevron-right"
                                                             style="font-size:30px ;color:black;"></i> </td>
 
@@ -927,122 +927,10 @@
                                                         </a> -->
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face30.jpg'%}" class="me-2"
-                                                            alt="image"> Anudeep
-                                                        Sirise
-                                                    </td>
-                                                    <td> Won the employee of the month </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face31.jpg'%}" class="me-2"
-                                                            alt="image"> Koushal
-                                                        Vadrevu
-                                                    </td>
-                                                    <td> Got prommoted to senior UX designer </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-info">ON HOLD</label>
-                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face21.jpg'%}" class="me-2"
-                                                            alt="image"> John Doe
-                                                    </td>
-                                                    <td> New Recruit in our family </td>
-                                                    <!-- <td>
-                                                        <label class="badge badge-gradient-danger">REJECTED</label>
-                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face19.jpg'%}" class="me-2"
-                                                            alt="image"> Yaswanth
-                                                    </td>
-                                                    <td> Completed his first project </td>
-                                                    <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face18.jpg'%}" class="me-2"
-                                                            alt="image"> Hima
-                                                    </td>
-                                                    <td> Celebrating his first year Work Anniversary </td>
-                                                    <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="{% static 'images/faces/face24.jpg'%}" class="me-2"
-                                                            alt="image"> Raghava
-                                                    </td>
-                                                    <td> Celebrating his birthday </td>
-                                                    <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                                                    <td> <i class="mdi mdi-chevron-right"
-                                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                                    <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                               
+                                                {%endfor%}
+                                              
+                                              
                                             </tbody>
                                         </table>
                                     </div>

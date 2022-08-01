@@ -58,6 +58,7 @@ class SkillList(models.Model):
 
 class Notifications(models.Model):
     notification_id=models.IntegerField()
+    notification=models.TextField(default=0)
     notification_message=models.TextField()
     user_id=models.CharField(max_length=8)
     truth_value=models.TextField()
@@ -69,9 +70,10 @@ class Team(models.Model):
     members_list=models.TextField()
 
 class Nominations(models.Model):
-    user_id=models.CharField(max_length=8)
+    award_id=models.IntegerField(default=0)
     award_name=models.TextField()
     no_of_nominations=models.IntegerField()
+
     start_date=models.TextField()
     end_date=models.TextField()
 
@@ -122,5 +124,18 @@ class PostSeen(models.Model):
     user_id=models.CharField(max_length=30)
     seen=models.TextField()
 
+class Awards(models.Model):
+    award_id=models.IntegerField()
+    winner_id=models.CharField(max_length=8)
 
+class Nominate(models.Model):
+    award_id=models.IntegerField()
+    user_id=models.CharField(max_length=8)
+    no_of_nominations=models.IntegerField()
 
+class Achievements(models.Model):
+    achievement_id=models.IntegerField()
+    achievement_name=models.TextField()
+    user_id=models.CharField(max_length=8)
+    month=models.TextField()
+    year=models.TextField()

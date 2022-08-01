@@ -561,8 +561,9 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                      class="img-sm rounded-circle me-3" alt="image">
+                  <p class="card-title">{% with 'images/faces/'|add:x.mention_user_id|add:'.jpg' as image_static %}
+                    <img src="{% static image_static %}" class="img-sm rounded-circle me-3" alt="image">
+                      {% endwith %}
 
                     <span
                       style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
