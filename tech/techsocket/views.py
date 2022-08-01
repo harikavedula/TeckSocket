@@ -210,7 +210,7 @@ def rewards(request):
 def feedback(request):
     return render(request, 'feedback.html')
 
-
+#yess
 def goals(request):
     print("oooo")
     if request.session=='POST':
