@@ -1,7 +1,8 @@
+from email import message
 from django.shortcuts import render,redirect
 from .models import *
+import array as arr
 # Create your views here.
-import cv2
 from django.views.decorators.cache import cache_control
 import json
 @cache_control(no_cache=True, must_revalidate=True)
@@ -27,12 +28,18 @@ def index(request):
         user=request.session['user_id']
         user_details=UserDetails.objects.filter(user_id=user)
         posts=Posts.objects.filter()
-        users=UserDetails.objects.filter()
+        users=UserDetails.objects.filter().exclude(user_id=user)
         l1=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
         for i in users:
             ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
             l1.append(ans)
-        print(l1)
+        
         l=[]
         for x in posts:
             r=x.post_id
@@ -40,6 +47,7 @@ def index(request):
             
             for y in r1:
                 if y.post_id==r and y.seen=="False":
+                    print(1111111111)
                     d={}
                     pr=UserDetails.objects.filter(user_id=x.user_id)
                     pr1=UserDetails.objects.filter(user_id=x.mentions)
@@ -51,12 +59,16 @@ def index(request):
                     l.append(d)
         PostSeen.objects.filter(user_id=user).update(seen="True")
         l11=json.dumps(l1)
-        print(l11)
+        l12=json.dumps(l2)
+
         context={
             'userdetails':user_details,
             'posts':l,
-            'users_names':l11
+            'users_names':l11,
+            'skills':l12,
             }
+        
+
         return render(request, 'index.html',context)
     return redirect('/')
 
@@ -113,6 +125,35 @@ def teamoverview(request):
                 'team':l1
         }
         return render(request, 'teamoverview.html',context)
+
+def sendrecognition(request):
+    if request.method=='POST':
+        us=request.session['user_id']
+        coins=int(request.POST['coins'])
+        coins1=coins
+        skill=request.POST['skills']
+        message=request.POST['message']
+        user1=request.POST['name'][-7:]
+        user=user1[0:6]
+        res=UserDetails.objects.filter(user_id=user)
+        posts=Posts.objects.filter()
+        post_no=len(posts)+1
+        post_no_str=str(post_no)
+        for i in res:
+            coins+=i.techie_coins
+            l=i.skills
+        res=list(l)
+        if len(res)==0:
+            res=[skill]
+        elif skill not in l:
+            res.append(skill)
+        res1=arr.array("i",res)
+        UserDetails.objects.filter(user_id=user).update(techie_coins=coins)
+        UserDetails.objects.filter(user_id=user).update(skills=res1)
+        Posts.objects.create(post_id=post_no,post=message,id=post_no_str,user_id=us,mentions=user,given_coins=coins1)
+        PostSeen.objects.create(post_id=post_no,user_id=us,id=post_no_str,seen="False")
+    return redirect('/index/')
+    
 
 
 def people(request):

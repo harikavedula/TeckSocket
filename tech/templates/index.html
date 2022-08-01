@@ -563,9 +563,10 @@
                         <div class="card-body">
 
                           <form autocomplete="off" class="forms-sample" action="/sendrecognition/" method="post">
+                            {% csrf_token %}
                             <div class="form-group autocomplete">
                               <label for="exampleInputName1">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName1" placeholder="name"
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="name" name="name"
                                 onblur="myFunction()">
                             </div>
 
@@ -579,20 +580,19 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text bg-gradient-primary text-white">$</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="coins">
                                 <div class="input-group-append">
                                   <span class="input-group-text">.00</span>
                                 </div>
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="exampleInputName1">Skills</label>
-                              <select multiple="multiple" id="myMulti">
-                                <option>Item 1</option>
-                                <option>item 2</option>
-                                <option>item 3</option>
-                                <option>item 4</option>
-                              </select>
+                              <div class="form-group autocomplete">
+                                <label for="exampleInputName1">Name</label>
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Skills" name="skills"
+                                  onblur="myFunction()">
+                              </div>
+                             
                               <!--                               
                               <input type="text" class="form-control" id="exampleInputName1" placeholder="Skills"> -->
                             </div>
@@ -660,6 +660,7 @@
   <!-- container-scroller -->
   {% endfor %}
   <script>
+
     function autocomplete(inp, arr) {
       /*the autocomplete function takes two arguments,
       the text field element and an array of possible autocompleted values:*/
@@ -760,14 +761,18 @@
     /*An array containing all the country names in the world:*/
     var names = JSON.parse(JSON.stringify("{{users_names}}"))
     var names1 = names.replace(/&quot;/g, "'");
-    console.log(names1)
     var names2 = names1.slice(2)
     var names3 = names2.slice(0, -2)
 
     names4 = names3.split("', '")
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-
+    var skills = JSON.parse(JSON.stringify("{{skills}}"))
+    var skills1 = skills.replace(/&quot;/g, "'");
+    var skills2 = skills1.slice(2)
+    var skills3 = skills2.slice(0, -2)
+    skills4 = skills3.split("', '")
     autocomplete(document.getElementById("exampleInputName1"), names4);
+    autocomplete(document.getElementById("exampleInputName2"), skills4);
   </script>
   <script>
     function btnToggle() {

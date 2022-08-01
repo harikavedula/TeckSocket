@@ -34,5 +34,5 @@ urlpatterns = [
     path('queries/', views.queries, name="queries"),
     path('personaldm/', views.personaldm, name="personaldm"),
     path('techquery/', views.techquery, name="techquery"),
-    # path('sendrecognition/',views.sendrecognition,name="sendrecognition")
+    path('sendrecognition/',views.sendrecognition,name="sendrecognition")
 ]

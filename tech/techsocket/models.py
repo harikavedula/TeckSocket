@@ -23,6 +23,7 @@ class UserDetails(models.Model):
     join_date_no=models.TextField(default=0)
     social_media=models.TextField(default=0)
     techie_coins=models.IntegerField(default=100)
+    skills=models.TextField(default=10)
 
 class Birthdays(models.Model):
     birth_day=models.CharField(max_length=5)
@@ -34,6 +35,7 @@ class Posts(models.Model):
     post=models.TextField()
     post_id=models.IntegerField()
     mentions=models.TextField()
+    given_coins=models.IntegerField(default=0)
 
 class PostReplies(models.Model):
     post_id=models.IntegerField()
