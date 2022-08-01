@@ -118,8 +118,9 @@ class Feedback(models.Model):
     feedback_content=models.TextField()
 
 class PostSeen(models.Model):
-    post_id=models.TextField()
+    post_id=models.IntegerField()
     user_id=models.CharField(max_length=30)
     seen=models.TextField()
+
 
 

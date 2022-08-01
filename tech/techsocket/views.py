@@ -5,6 +5,7 @@ import array as arr
 # Create your views here.
 from django.views.decorators.cache import cache_control
 import json
+import numpy as np
 @cache_control(no_cache=True, must_revalidate=True)
 def login(request):
     if request.method=='POST':
@@ -46,6 +47,7 @@ def index(request):
             r1=PostSeen.objects.filter(user_id=user)
             
             for y in r1:
+                print(1111111111)
                 if y.post_id==r and y.seen=="False":
                     print(1111111111)
                     d={}
@@ -131,27 +133,47 @@ def sendrecognition(request):
         us=request.session['user_id']
         coins=int(request.POST['coins'])
         coins1=coins
+        
         skill=request.POST['skills']
+        
         message=request.POST['message']
         user1=request.POST['name'][-7:]
         user=user1[0:6]
         res=UserDetails.objects.filter(user_id=user)
+        res1=UserDetails.objects.filter(user_id=us)
+        l=""
+        for i in res1:
+            coins2=i.techie_coins-coins
         posts=Posts.objects.filter()
         post_no=len(posts)+1
         post_no_str=str(post_no)
         for i in res:
             coins+=i.techie_coins
             l=i.skills
-        res=list(l)
-        if len(res)==0:
-            res=[skill]
-        elif skill not in l:
-            res.append(skill)
-        res1=arr.array("i",res)
+            
+        if len(l)==0:
+            resr=skill
+        else:
+            resr=l.split(",")
+            if skill not in resr:
+                l+=","+skill
+        
+       
+        res1=np.array(res)
         UserDetails.objects.filter(user_id=user).update(techie_coins=coins)
-        UserDetails.objects.filter(user_id=user).update(skills=res1)
+        UserDetails.objects.filter(user_id=us).update(techie_coins=coins2)
+        UserDetails.objects.filter(user_id=user).update(skills=l)
         Posts.objects.create(post_id=post_no,post=message,id=post_no_str,user_id=us,mentions=user,given_coins=coins1)
-        PostSeen.objects.create(post_id=post_no,user_id=us,id=post_no_str,seen="False")
+        len2=len(UserDetails.objects.filter())
+        len1=len(PostSeen.objects.filter())+1
+        users2=[]
+        res2=UserDetails.objects.filter()
+        for x in res2:
+            users2.append(x.user_id)
+        for i in range(len2):
+            len3=str(len1)
+            PostSeen.objects.create(post_id=post_no,user_id=users2[i],id=len3,seen="False")
+            len1+=1
     return redirect('/index/')
     
 
@@ -190,6 +212,9 @@ def feedback(request):
 
 
 def goals(request):
+    print("oooo")
+    if request.session=='POST':
+        print("yeahhhh")
     return render(request, 'goals.html')
 
 def queries(request):
