@@ -17,9 +17,17 @@
   <!-- endinject -->
   <!-- Layout styles -->
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
+    rel="stylesheet">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" />
   <style>
+    .comment {
+      width: 30%;
+      height: 30px;
+      background-color: #f0f4ec;
+    }
+
     .active {
       color: #b66dff !important;
 
@@ -571,6 +579,13 @@
                     <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
                     <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
                     <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+                  <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;">
+                    <form action="/form/submit" method="POST">
+                      <textarea class="comment" placeholder="Add Comment..." style="float:left"></textarea>
+                      <button class="msg_send_btn" type="button" style="border:none  ;float:left;padding: 2.5px;"><i
+                          class="fa  fa-paper-plane" aria-hidden="true" style="font-size:20px ;"></i></button>
+                    </form>
                   </div>
                 </div>
               </div>
