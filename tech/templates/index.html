@@ -24,6 +24,12 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <style>
+    .comment {
+      width: 30%;
+      height: 30px;
+      background-color: #f0f4ec;
+    }
+
     .active {
       color: #b66dff !important;
     }
@@ -566,8 +572,8 @@
                             {% csrf_token %}
                             <div class="form-group autocomplete">
                               <label for="exampleInputName1">Name</label>
-                              <input type="text" class="form-control" id="exampleInputName1" placeholder="name" name="name"
-                                onblur="myFunction()">
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="name"
+                                name="name" onblur="myFunction()">
                             </div>
 
                             <div class="form-group">
@@ -580,7 +586,8 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text bg-gradient-primary text-white">$</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="coins">
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                  name="coins">
                                 <div class="input-group-append">
                                   <span class="input-group-text">.00</span>
                                 </div>
@@ -589,10 +596,10 @@
                             <div class="form-group">
                               <div class="form-group autocomplete">
                                 <label for="exampleInputName1">Name</label>
-                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Skills" name="skills"
-                                  onblur="myFunction()">
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Skills"
+                                  name="skills" onblur="myFunction()">
                               </div>
-                             
+
                               <!--                               
                               <input type="text" class="form-control" id="exampleInputName1" placeholder="Skills"> -->
                             </div>
@@ -630,6 +637,13 @@
                     <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
                     <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
                     <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                  </div>
+                  <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;">
+                    <form action="/form/submit" method="POST">
+                      <textarea class="comment" placeholder="Add Comment..." style="float:left"></textarea>
+                      <button class="msg_send_btn" type="button" style="border:none  ;float:left;padding: 2.5px;"><i
+                          class="fa  fa-paper-plane" aria-hidden="true" style="font-size:20px ;"></i></button>
+                    </form>
                   </div>
                 </div>
               </div>
