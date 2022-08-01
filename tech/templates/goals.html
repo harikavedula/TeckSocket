@@ -538,16 +538,24 @@
                 <i class="mdi mdi-calendar-text"></i>
               </span>Personal Goals
             </h3>
+            <div class="add-items d-flex form-group">
 
+              <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"
+                name="goal">
+              <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" type="submit"
+                id="add-task">
+                Add</button>
+
+            </div>
           </div>
           <div class="row">
             <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title text-white">Todo</h4>
-                  <form action="/goals/" class="forms-sample" method="post">
+                  <form action="/goals/" method="post">
 
-                    <div class="add-items d-flex">
+                    <div class="add-items d-flex form-group">
 
                       <input type="text" class="form-control todo-list-input"
                         placeholder="What do you need to do today?" name="goal">
