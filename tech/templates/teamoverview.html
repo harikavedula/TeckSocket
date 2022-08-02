@@ -83,7 +83,8 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="">TechSocket</a>
+                <a class="navbar-brand brand-logo" href=""><img src="{% static 'images/faces/5.png'%}"
+                        style="height:45px ; width:210px" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg'%}"
                         alt="logo" /></a>
             </div>
@@ -656,8 +657,12 @@
                                 <div class="card-body" style="padding-bottom: 5px !important ;">
                                     <img src="{%static 'images/dashboard/circle.svg'%}" class="card-img-absolute"
                                         alt="circle-image" />
-                                    <div>
-                                        <img class="teamimg" src="{% static 'images/faces/face1.jpg'%}" alt="profile">
+                                    <div>{% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                                        <img class="teamimg" src="{% static image_static %}" alt="image">
+                                        {% endwith %}
+
                                         <span class="font-weight-normal mb-3"
                                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
                                             {{x.user_name}}</span>

@@ -107,7 +107,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="">TechSocket</a>
+        <a class="navbar-brand brand-logo" href=""><img src="{% static 'images/faces/5.png'%}"
+            style="height:45px ; width:210px" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg'%}" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -636,7 +637,7 @@
                     <span class="font-weight-normal mb-3"
                       style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">&nbsp;&nbsp;
                       <strong>{{x.award_name}}</strong> </span><br>
-                  
+
                     <!--change to offline or busy as needed-->
                   </div>
                   <br>
@@ -661,7 +662,8 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                   <label for="exampleInputName1">Name</label>
-                                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Name"
+                                    name="name">
                                   <input type="hidden" name="award" value={{x.award_id}}>
                                 </div>
 
@@ -680,15 +682,15 @@
                 </div>
               </div>
             </div>
-            
-                
+
+
             {%endfor%}
-         
-  
 
-            
 
-                
+
+
+
+
           </div>
           <div class="page-header">
             <h3 class="page-title">
