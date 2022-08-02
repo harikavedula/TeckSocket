@@ -119,6 +119,8 @@ def mentions(request):
 def teamoverview(request):
     if 'logged_in' in request.session:
         user=request.session['user_id']
+       
+        user_details=UserDetails.objects.filter(user_id=user)
         team=Team.objects.filter()
         l=[]
 
@@ -140,9 +142,17 @@ def teamoverview(request):
                 d['join_date_no']=y.join_date_no
                 d['join_year']=y.join_year
             l1.append(d)
-            
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
         context={
-                'team':l1
+            'userdetails':user_details,
+                'team':l1,
+                'notification':ln
         }
         return render(request, 'teamoverview.html',context)
 
@@ -204,9 +214,20 @@ def sendrecognition(request):
 def people(request):
     
     if 'logged_in' in request.session:
-        user_details=UserDetails.objects.filter()
+        users_details=UserDetails.objects.filter()
+        user=request.session['user_id']
+        user_details=UserDetails.objects.filter(user_id=user)
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
         context={
-            'users':user_details
+            'userdetails':user_details,
+            'users':users_details,
+            'notification':ln
         }
         return render(request, 'people.html',context)
 
