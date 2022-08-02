@@ -78,7 +78,7 @@ def index(request):
             'skills':l12,
             'notification':ln
             }
-        
+        print(context['notification'])
 
         return render(request, 'index.html',context)
     return redirect('/')
@@ -92,6 +92,7 @@ def mentions(request):
  
             ans=x.first_name+" "+x.last_name
         l=[]
+        user_details=UserDetails.objects.filter(user_id=user)
         for x in mentioned:
             d={}
             r1=UserDetails.objects.filter(user_id=x.user_id)
@@ -101,9 +102,17 @@ def mentions(request):
                 d['user_name']=y.first_name+" "+y.last_name
             d['mention_user_id']=x.user_id
             l.append(d)
-
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
         context={
-            'posts':l
+            'userdetails':user_details,
+            'posts':l,
+            'notification':ln
         }
     return render(request, 'mentions.html',context)
 
@@ -124,7 +133,7 @@ def teamoverview(request):
             d['no']=sum
             for y in p:
                 
-                
+                d['user_id']=y.user_id
                 d['user_name']=y.first_name+" "+y.last_name
                 d['designation']=y.designation
                 d['join_month']=y.join_month
@@ -214,17 +223,16 @@ def felicitations(request):
         now_year=now.strftime("%Y")
         l=[]
         h1=int(now_year+now_month)
-        print(now_month)
-        print(now_year)
+        
         # print(h1)
         for x in ach:
             
             p=x.month
             p1=x.year
             h2=int(p1+p)
-            print(h2)
+            
             if(h1==h2):
-                print(111)
+                
                 d={}
                 d['user_id']=x.user_id
                 d['achievement']=x.achievement_name

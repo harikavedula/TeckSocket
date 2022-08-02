@@ -888,8 +888,12 @@
                                                 <tr>
 
                                                     <td>
-                                                        <img src="{% static 'images/faces/face1.jpg'%}" class="me-2"
-                                                            alt="image"> {{x.first_name}}
+                                                        {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image">
+                {% endwith %}
+            {{x.first_name}}  &nbsp; {{x.last_name}}
                                                     </td>
                                                     <td>{{x.designation}}</td>
                                                     <!-- <td>
