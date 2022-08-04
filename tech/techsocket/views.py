@@ -389,3 +389,35 @@ def personaldm(request):
 
 def techquery(request):
     return render(request, 'techquery.html')
+
+def quiz(request):
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        
+        user_details = UserDetails.objects.filter(user_id=user)
+        # topics = Topics.objects.filter()
+        # ln = []
+        # for x in ans1:
+        #     d = {}
+        #     d['notification'] = x.notification
+        #     d['msg'] = x.notification_message
+        #     ln.append(d)
+        data = {
+
+            'userdetails': user_details
+            # 'notification': ln,
+            # 'topics': topics
+        }
+        return render(request, 'quiz.html', data)
+
+
+def projectfeed(request):
+    return render(request, 'projectfeed.html')
+
+
+def skillfeed(request):
+    return render(request, 'skillfeed.html')
+
+
+def personal(request):
+    return render(request, 'personal.html')
