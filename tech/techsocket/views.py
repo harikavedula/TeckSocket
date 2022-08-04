@@ -233,11 +233,32 @@ def people(request):
 
 
 def incentives(request):
-    return render(request, 'incentives.html')
+    if 'logged_in' in request.session:
+        user=request.session['user_id']
+        user_details=UserDetails.objects.filter(user_id=user)
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
+        
+        inc=Incentives.objects.filter()
+        for x in inc:
+            print(x.incentive)
+        context={
+            'userdetails':user_details,
+                'incentives':inc,
+                'notification':ln,
+        }
+    return render(request, 'incentives.html',context)
 
 
 def felicitations(request):
     if 'logged_in' in request.session:
+        user=request.session['user_id']
+        user_details=UserDetails.objects.filter(user_id=user)
         ach=Achievements.objects.filter()
         now=datetime.now()
         now_month=now.strftime("%m")
@@ -261,8 +282,17 @@ def felicitations(request):
                 for y in ach1:
                     d['name']=y.first_name+" "+y.last_name
                 l.append(d)
+        ans1=Notifications.objects.filter(user_id=user)
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
         data={
-            'achievements':l
+            'achievements':l,
+            'userdetails':user_details,
+              'notification':ln,
         }
         return render(request, 'felicitations.html',data)
 
@@ -315,7 +345,24 @@ def awards(request):
 
 
 def talentassesments(request):
-    return render(request, 'talentassesments.html')
+    if 'logged_in' in request.session:
+        user=request.session['user_id']
+        ans1=Notifications.objects.filter(user_id=user)
+        user_details=UserDetails.objects.filter(user_id=user)
+        topics=Topics.objects.filter()
+        ln=[]
+        for x in ans1:
+            d={}
+            d['notification']=x.notification
+            d['msg']=x.notification_message
+            ln.append(d)
+        data={
+            
+            'userdetails':user_details,
+              'notification':ln,
+              'topics':topics
+        }
+        return render(request, 'talentassesments.html',data)
 
 
 def rewards(request):

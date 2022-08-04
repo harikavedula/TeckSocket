@@ -1,3 +1,4 @@
+from email import message
 from email.policy import default
 from xmlrpc.client import Boolean
 from django.db import models
@@ -139,3 +140,15 @@ class Achievements(models.Model):
     user_id=models.CharField(max_length=8)
     month=models.TextField()
     year=models.TextField()
+
+class Incentives(models.Model):
+    incentive_id=models.IntegerField()
+    incentive=models.TextField()
+    techie_coins=models.IntegerField()
+    message=models.TextField()
+
+class Topics(models.Model):
+    topic_id=models.IntegerField()
+    topic=models.TextField()
+
+     

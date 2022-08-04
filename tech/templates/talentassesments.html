@@ -317,6 +317,7 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
               aria-labelledby="notificationDropdown">
               <h6 class="p-3 mb-0">Notifications</h6>
+              {%for x in notification%}
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
@@ -325,35 +326,14 @@
                   </div>
                 </div>
                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                  <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                  <h6 class="preview-subject font-weight-normal mb-1">{{x.notification}}</h6>
+                  <p class="text-gray ellipsis mb-0"> {{x.msg}}
                   </p>
                 </div>
               </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="mdi mdi-settings"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                  <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="mdi mdi-link-variant"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                  <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                </div>
-              </a>
+
+              {%endfor%}
+             
               <div class="dropdown-divider"></div>
               <h6 class="p-3 mb-0 text-center">See all notifications</h6>
             </div>
@@ -369,15 +349,20 @@
             </div>
           </li>
 
+          {%for x in userdetails%}
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
               aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="{% static 'images/faces/face1.jpg'%}" alt="image">
+                {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image">
+                {% endwith %}
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">Harika Vedula</p>
+                <p class="mb-1 text-black">{{x.first_name}} {{x.last_name}}</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -427,43 +412,22 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
             aria-labelledby="notificationDropdown">
             <h6 class="p-3 mb-0">Notifications</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-success">
-                  <i class="mdi mdi-calendar"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
-                </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-warning">
-                  <i class="mdi mdi-settings"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-info">
-                  <i class="mdi mdi-link-variant"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-              </div>
-            </a>
+                        {%for y in notification%}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-success">
+                                    <i class="mdi mdi-calendar"></i>
+                                </div>
+                            </div>
+                            <div
+                                class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                <h6 class="preview-subject font-weight-normal mb-1">{{y.notification}}</h6>
+                                <p class="text-gray ellipsis mb-0"> {{y.msg}}
+                                </p>
+                            </div>
+                        </a>
+                  {%endfor%}
             <div class="dropdown-divider"></div>
             <h6 class="p-3 mb-0 text-center">See all notifications</h6>
           </div>
@@ -493,13 +457,15 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="{% static 'images/faces/face1.jpg'%}" alt="profile">
+                {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+                <img src="{% static image_static %}" alt="image">
+                {% endwith %}
                 <span class="login-status online"></span>
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">Harika Vedula</span>
-                <span class="text-secondary text-small">Project Manager</span>
+                <span class="font-weight-bold mb-2">{{x.first_name}} &nbsp; {{x.last_name}}</span>
+                <span class="text-secondary text-small">{{x.designation}}</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -576,7 +542,7 @@
               <i class="mdi mdi-comment-alert menu-icon"></i>
             </a>
           </li>
-
+          {%endfor%}
         </ul>
       </nav>
       <!-- partial -->
@@ -607,9 +573,10 @@
                                                 </tr> -->
                       </thead>
                       <tbody>
+                        {%for x in topics%}
                         <tr>
                           <td>
-                            <img src="{% static 'images/faces/face1.jpg'%}" class="me-2" alt="image"> Python
+                           {{x.topic}}
                           </td>
 
                           <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
@@ -619,117 +586,10 @@
                               <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
                           </td>
 
-                          <!-- <td>
-
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-whatsapp"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-facebook-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-twitter-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-linkedin-box"
-                                                                style="font-size:30px ;color:black;"></i>
-                                                        </a> -->
-                          </td>
+                          
                         </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face30.jpg'%}" class="me-2" alt="image">C++
-                          </td>
-                          <!-- <td> Won the employee of the month </td> -->
-                          <!-- <td>
-                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button>
-                            </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face31.jpg'%}" class="me-2" alt="image">Java
-                          </td>
-                          <!-- <td> Got prommoted to senior UX designer </td> -->
-                          <!-- <td>
-                                                        <label class="badge badge-gradient-info">ON HOLD</label>
-                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face21.jpg'%}" class="me-2" alt="image">Data Structures
-                          </td>
-                          <!-- <td> New Recruit in our family </td> -->
-                          <!-- <td>
-                                                        <label class="badge badge-gradient-danger">REJECTED</label>
-                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face19.jpg'%}" class="me-2" alt="image"> Pandas
-                          </td>
-                          <!-- <td> Completed his first project </td> -->
-                          <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face18.jpg'%}" class="me-2" alt="image"> React
-                          </td>
-                          <!-- <td> Celebrating his first year Work Anniversary </td> -->
-                          <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <img src="{% static 'images/faces/face24.jpg'%}" class="me-2" alt="image"> Django
-                          </td>
-                          <!-- <td> Celebrating his birthday </td> -->
-                          <!-- <td>
-                                                                                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                                                                                    </td> -->
-                          <td> <i class="mdi mdi-chevron-right" style="font-size:30px ;color:black;"></i> </td>
-
-                          <td>
-                            <a href="#" style="text-decoration: none;">
-                              <button class="btn btn-gradient-danger btn-rounded btn-fw te"> Take Test</button> </a>
-                          </td>
-                        </tr>
+                          {%endfor%}
+                       
                       </tbody>
                     </table>
                   </div>
