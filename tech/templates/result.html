@@ -299,14 +299,57 @@
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href=""><img src="{% static 'images/faces/5.png'%}"
                         style="height:45px ; width:210px" alt="logo" /></a>
-
+                <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg'%}"
+                        alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
 
+                <ul class="navbar-nav navbar-nav-left">
 
+                    <li class="nav-item dropdown d-no" style="float:left !important ;">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-bs-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count-symbol bg-danger"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0">Notifications</h6>
+                            {%for x in notification%}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="mdi mdi-calendar"></i>
+                                    </div>
+                                </div>
+                                <div
+                                    class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="preview-subject font-weight-normal mb-1">{{x.notification}}</h6>
+                                    <p class="text-gray ellipsis mb-0"> {{x.msg}}
+                                    </p>
+                                </div>
+                            </a>
 
+                            {%endfor%}
+
+                            <div class="dropdown-divider"></div>
+                            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+                        </div>
+                    </li>
+                </ul>
                 <ul class="navbar-nav navbar-nav-right">
-
+                    <li class="nav-item nav-settings  d-lg-block searnew">
+                        <div class="box ">
+                            <form class="search-box ">
+                                <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+                                <button type="reset"></button>
+                            </form>
+                        </div>
+                    </li>
 
                     {%for x in userdetails%}
                     <li class="nav-item nav-profile dropdown">
@@ -333,7 +376,16 @@
                         </div>
                     </li>
 
-
+                    <li class="nav-item nav-settings d-no d-lg-block">
+                        <a class="nav-link" href="/techquery">
+                            <button class="btn btn-gradient-light btn-rounded btn-fw"> Tech Query</button>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-settings  d-lg-block">
+                        <a class="nav-link" href="/personaldm">
+                            <i class="mdi mdi-facebook-messenger"></i>
+                        </a>
+                    </li>
                     <li class="nav-item nav-settings  d-lg-block">
                         <a class="nav-link" href="#">
                             <i class="mdi mdi-format-line-spacing"></i>
@@ -346,11 +398,63 @@
                 </button>
             </div>
         </nav>
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top  d-yes"
+            style="margin-top:70px !important ;">
 
+            <div style="width:100% ;">
+                <div style="float:left !important ; max-width:80px;color: #9c9fa6 !important;">
+
+                    <a class="nav-link count-indicator " id="notificationDropdown" href="#" data-bs-toggle="dropdown"
+                        style="text-decoration: none;">
+                        <i class="mdi mdi-bell-outline not"
+                            style="color: #9c9fa6 !important;font-size: 25px;margin-left: 10px;"></i>
+                        <span class="count-symbol bg-danger"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                        aria-labelledby="notificationDropdown">
+                        <h6 class="p-3 mb-0">Notifications</h6>
+                        {%for y in notification%}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-success">
+                                    <i class="mdi mdi-calendar"></i>
+                                </div>
+                            </div>
+                            <div
+                                class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                                <h6 class="preview-subject font-weight-normal mb-1">{{y.notification}}</h6>
+                                <p class="text-gray ellipsis mb-0"> {{y.msg}}
+                                </p>
+                            </div>
+                        </a>
+                        {%endfor%}
+                        <div class="dropdown-divider"></div>
+                        <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+                    </div>
+                </div>
+                <div style="float: right ; max-width:250px; margin-top: 0px;">
+                    <a class="nav-link" style="padding-top: 0px !important;" href="/techquery">
+                        <button class="btn btn-gradient-light btn-rounded btn-fw te"> Tech Query</button>
+                    </a>
+                </div>
+                <div class="box " style="float:right ; margin-top: 5px;">
+                    <form class="search-box ">
+                        <input id="search" type="text" placeholder="Search" onkeyup="myFunction()" />
+                        <button type="reset"></button>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+        </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas whi" id="sidebar" style="display:none !important ;">
+            <nav class="sidebar sidebar-offcanvas whi" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
@@ -444,112 +548,81 @@
                 </ul>
             </nav>
             <!-- partial -->
-            <div class="main-panel" style="width:100% ;">
+            <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h2 style="margin:0 auto ;">
-                            Python
-                        </h2>
+                        <h3 class="page-title">
+                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                <i class="mdi mdi-spellcheck menu-icon"></i>
+                            </span>Talent Assesments
+                        </h3>
 
                     </div>
-                    <form method='post' action='/quiz/' name="test">
-                        {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-9 grid-margin" style="margin: 0 auto;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="page-title" style="margin: 0 auto; width: 20%; margin-bottom: 30px;">
+                                        {{topic}}
+                                    </h3>
+
+                                    <div class="table-responsive">
+                                        <table class="table" id="myTable">
+
+                                            <tbody>
+
+                                                <tr>
+                                                    <td style="width:45% ;">
+                                                        Total Score
+                                                    </td>
+
+                                                    <td style="width:10%"> <i class="mdi mdi-arrow-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
+
+                                                    <td style="width:45% ;">
+                                                        {{total}}
+                                                    </td>
 
 
-                        {% for q in questions%}
-                        <div class="row">
-                            <div class="col-9 grid-margin" style="margin: 10px auto !important ;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="form-group">
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:45% ;">
+                                                        Score
+                                                    </td>
 
-                                            <label for="question" style="font-size: 20px !important;">Question
-                                                {{q.question_no}}.
-                                                {{q.question}}</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="{{q.question}}"
-                                                    id="gridRadios1" value="option_1" style="margin-left:50px ;">
-                                                <label class="form-check-label form-check-primary" for="gridRadios1"
-                                                    style="margin-left: 80px ; padding-top:3px;font-family:Arial, Helvetica, sans-serif;font-size: 16px;">
-                                                    {{q.option_1}}
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="{{q.question}}"
-                                                    id="gridRadios2" value="option_2" style="margin-left:50px ;">
-                                                <label class="form-check-label" for="gridRadios2"
-                                                    style="margin-left: 80px ; padding-top:3px;font-family:Arial, Helvetica, sans-serif;font-size: 16px;">
-                                                    {{q.option_2}}
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="{{q.question}}"
-                                                    id="gridRadios1" value="option_3" style="margin-left:50px ;">
-                                                <label class="form-check-label" for="gridRadios1"
-                                                    style="margin-left: 80px ; padding-top:3px;font-family:Arial, Helvetica, sans-serif;font-size: 16px;">
-                                                    {{q.option_3}}
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="{{q.question}}"
-                                                    id="gridRadios2" value="option4" style="margin-left:50px ;">
-                                                <label class="form-check-label" for="gridRadios2"
-                                                    style="margin-left: 80px ; padding-top:3px;font-family:Arial, Helvetica, sans-serif;font-size: 16px;">
-                                                    {{q.option_4}}
-                                                </label>
-                                            </div>
-                                            <br>
-                                        </div>
+                                                    <td style="width:10%"> <i class="mdi mdi-arrow-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
+
+                                                    <td style="width:45% ;">
+                                                        {{score}}
+                                                    </td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:45% ;">
+                                                        Percentage
+                                                    </td>
+
+                                                    <td style="width:10%"> <i class="mdi mdi-arrow-right"
+                                                            style="font-size:30px ;color:black;"></i> </td>
+
+                                                    <td style="width:45% ;">
+                                                        {{percentage}}
+                                                    </td>
+
+
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
-                        <input id='timer' type='hidden' name="timer" value="">
-                        {% for x in quiz%}
-                        <p id="timmee" style="">{{x.quiz_time}}</p>{% endfor %}
-
-                        <br>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-
-
-                    <div class="table-responsive">
-                        <table class="table" id="myTable">
-                            <thead>
-                                <!-- <tr>
-                                                    <th> Name </th>
-                                                    <th> Profile </th>
-                                                    <th> Join date </th>
-                                                    <th> Contact </th>
-                                                </tr> -->
-                            </thead>
-                            <tbody>
-                                {%for x in topics%}
-                                <tr>
-                                    <td style="width:45% ;">
-                                        {{x.topic}}
-                                    </td>
-
-                                    <td style="width:10%"> <i class="mdi mdi-chevron-right"
-                                            style="font-size:30px ;color:black;"></i> </td>
-
-                                    <td style="width:45% ;">
-                                        <a href="/quiz/" style="text-decoration: none;float:right;margin-right: 30px;">
-                                            <button class="btn btn-gradient-danger btn-rounded btn-fw te">
-                                                Take Test</button> </a>
-                                    </td>
-
-
-                                </tr>
-                                {%endfor%}
-
-                            </tbody>
-                        </table>
                     </div>
-
 
                 </div>
                 <!-- content-wrapper ends -->
@@ -586,22 +659,39 @@
     <script src="{%static 'js/dashboard.js'%}"></script>
     <script src="{%static 'js/todolist.js'%}"></script>
     <!-- End custom js for this page -->
-
     <script>
+        function myFunction() {
 
-        console.log('hello world')
-        const timer = document.getElementById('displaytimer')
-        console.log(timer.textContent)
-        const inputtag = document.getElementById('timer')
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
-        t = 0
-        setInterval(() => {
-            t += 1
-            timer.innerHTML = "<b>Timer: " + t + " seconds</b>"
-            inputtag.value = t
-        }, 1000)
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
     </script>
+    <script>
+        function btnToggle() {
+            document.getElementById("Dropdown").classList.toggle("show");
+        }
 
+        // Prevents menu from closing when clicked inside
+        document.getElementById("Dropdown").addEventListener('click', function (event) {
+
+            event.stopPropagation();
+        });
+    </script>
 </body>
 
 </html>

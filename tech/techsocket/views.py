@@ -391,27 +391,67 @@ def personaldm(request):
 def techquery(request):
     return render(request, 'techquery.html')
 
+
+
 def quiz(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
-        topic_id1=request.GET['topic_id']
-        questions=Questions.objects.filter(topic_id=topic_id1)
         user_details = UserDetails.objects.filter(user_id=user)
-        # topics = Topics.objects.filter()
-        # ln = []
-        # for x in ans1:
-        #     d = {}
-        #     d['notification'] = x.notification
-        #     d['msg'] = x.notification_message
-        #     ln.append(d)
-        data = {
+        if request.method=="GET":
+            topic_id=request.GET['topic_id']
+            questions=Questions.objects.filter(topic_id=topic_id)
+            request.session['topic_id'] = topic_id
+        
+            data = {
 
-            'userdetails': user_details,
-            'questions':questions
+                'userdetails': user_details,
+                'questions':questions,
             # 'notification': ln,
-            # 'topics': topics
-        }
-        return render(request, 'quiz.html', data)
+            
+            }
+            return render(request, 'quiz.html', data)
+        else:
+            topic_id = request.session['topic_id']
+            topics = Topics.objects.filter(
+                topic_id=request.session['topic_id'])
+            data = Questions.objects.filter(
+                topic_id=request.session['topic_id'])
+            data1={
+                'questions':data
+            }
+            score=0
+            total=20
+            for t in topics:
+                topic=t.topic
+            for f in data1['questions']:
+                a=f.question
+                x=0
+                ans=request.POST[a]
+                print(ans,f.answer)
+                if ans==f.answer:
+                    score+=1
+                    x=1
+            percentage=(score/total)*100
+            ans1 = Notifications.objects.filter(user_id=user)
+            ln = []
+            for x in ans1:
+                d = {}
+                d['notification'] = x.notification
+                d['msg'] = x.notification_message
+                ln.append(d)
+            data3={
+                'total':total,
+                'score':score,
+                'percentage':percentage,
+                'topic':topic,
+                'userdetails': user_details,
+                'notification': ln,
+                
+            }
+            return render(request,'result.html', data3)
+
+
+        
 
 
 def projectfeed(request):
