@@ -1,4 +1,5 @@
 from email import message
+from pydoc_data.topics import topics
 from django.shortcuts import render,redirect
 from .models import *
 import array as arr
@@ -393,7 +394,8 @@ def techquery(request):
 def quiz(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
-        
+        topic_id1=request.GET['topic_id']
+        questions=Questions.objects.filter(topic_id=topic_id1)
         user_details = UserDetails.objects.filter(user_id=user)
         # topics = Topics.objects.filter()
         # ln = []
@@ -404,7 +406,8 @@ def quiz(request):
         #     ln.append(d)
         data = {
 
-            'userdetails': user_details
+            'userdetails': user_details,
+            'questions':questions
             # 'notification': ln,
             # 'topics': topics
         }

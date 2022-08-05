@@ -151,4 +151,12 @@ class Topics(models.Model):
     topic_id=models.IntegerField()
     topic=models.TextField()
 
-     
+class Questions(models.Model):
+    topic_id=models.IntegerField()
+    question_no = models.IntegerField()
+    question = models.TextField()
+    option_1 = models.CharField(max_length=200)
+    option_2 = models.CharField(max_length=200)
+    option_3 = models.CharField(max_length=200)
+    option_4 = models.CharField(max_length=200)
+    answer = models.CharField(max_length=8)
