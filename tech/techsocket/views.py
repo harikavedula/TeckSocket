@@ -301,26 +301,31 @@ def felicitations(request):
 def awards(request):
     if 'logged_in' in request.session:
         if request.method=='POST':
-            
-            print(request.POST['award'])
-            award=1
+            award=int(request.POST['award'])
             user1=request.POST['name'][-7:]
             user2=user1[0:6]
+            user=request.session['user_id']
             x=Nominations.objects.filter(award_id=award)
             c=0
             for i in x:
                 c=i.no_of_nominations
-            c+=1
-            Nominations.objects.filter(award_id=award).update(no_of_nominations=c)
+            
             x1=Nominate.objects.filter(award_id=award)
-            if len(x1)==0:
-                Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
-            else:
-                x2=Nominate.objects.filter(award_id=award,user_id=user2)
-                if len(x2)==0:
-                    Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
-                else:
-                    Nominate.objects.filter(award_id=award,user_id=user2).update(no_of_nominations=len(x2)+1)
+            hh=UserNominate.objects.filter(user_id=user)
+            for x in hh:
+                if x.award_id==award:
+                    if x.nominated=='False':
+                        if len(x1)==0:
+                            Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+                        else:
+                            x2=Nominate.objects.filter(award_id=award,user_id=user2)
+                            if len(x2)==0:
+                                Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+                            else:
+                                Nominate.objects.filter(award_id=award,user_id=user2).update(no_of_nominations=len(x2)+1)
+                        c+=1
+                        Nominations.objects.filter(award_id=award).update(no_of_nominations=c)
+                        UserNominate.objects.filter(user_id=user,award_id=award).update(nominated='True')
 
         date_now=datetime.now()
         date_present=date_now.strftime("%m/%d/%Y")
@@ -330,6 +335,7 @@ def awards(request):
         l=[]
         for x in nominations:
             d={}
+            d['award_id']=x.award_id
             d['award_name']=x.award_name
             d['nominated']=x.no_of_nominations
             l.append(d)

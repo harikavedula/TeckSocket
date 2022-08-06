@@ -165,3 +165,8 @@ class UserAnswers(models.Model):
     topic_id=models.IntegerField()
     user_id=models.CharField(max_length=8)
     score=models.IntegerField()
+
+class UserNominate(models.Model):
+    award_id=models.IntegerField()
+    user_id=models.CharField(max_length=8)
+    nominated=models.TextField()
