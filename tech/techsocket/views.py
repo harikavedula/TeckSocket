@@ -306,6 +306,7 @@ def awards(request):
             user2=user1[0:6]
             user=request.session['user_id']
             x=Nominations.objects.filter(award_id=award)
+            
             c=0
             for i in x:
                 c=i.no_of_nominations
@@ -326,9 +327,11 @@ def awards(request):
                         c+=1
                         Nominations.objects.filter(award_id=award).update(no_of_nominations=c)
                         UserNominate.objects.filter(user_id=user,award_id=award).update(nominated='True')
-
+        user = request.session['user_id']
         date_now=datetime.now()
         date_present=date_now.strftime("%m/%d/%Y")
+        user_details = UserDetails.objects.filter(user_id=user)
+        ans1 = Notifications.objects.filter(user_id=user)
         nominations=Nominations.objects.filter()
         user=request.session['user_id']
         users=UserDetails.objects.filter().exclude(user_id=user)
@@ -344,9 +347,17 @@ def awards(request):
             ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
             l1.append(ans)
         l11=json.dumps(l1)
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
         data={
             'awards':l,
-            'users_names':l11
+            'users_names':l11,
+            'userdetails': user_details,
+            'notification': ln,
         }
         return render(request, 'awards.html',data)
 
