@@ -579,19 +579,19 @@
                   <p class="card-description"> Feel free to Share ,Ask or Complain. </p>
 
 
-                  <form>
-
+                  <form method="post" action="/queries/">
+                    {% csrf_token %}
                     <div class="form-group">
                       <div class="input-group" style="width:250px;margin: 0px auto;">
                         <div class="input-group-prepend">
                           <div class="custom-select" style="width:250px;margin: 0px auto;">
-                            <select>
+                            <select name="query_type">
                               <option value="0">Select Your Issue</option>
-                              <option value="1">Technical</option>
-                              <option value="2">Communication</option>
-                              <option value="3">Job Satisfaction</option>
-                              <option value="4">Ethical</option>
-                              <option value="5">Others</option>
+                              <option value="Technical">Technical</option>
+                              <option value="Communication">Communication</option>
+                              <option value="Job Satisfaction">Job Satisfaction</option>
+                              <option value="Ethical">Ethical</option>
+                              <option value="Others">Others</option>
                             </select>
                           </div>
                         </div>
@@ -600,7 +600,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleTextarea1">Your Query</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" name="query"></textarea>
                     </div>
                     <button type="submit" class="btn btn-gradient-primary me-2"
                       style="float: right; margin-right:40px;">Send Query</button>

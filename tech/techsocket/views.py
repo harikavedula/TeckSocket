@@ -437,6 +437,16 @@ def goals(request):
 
 def queries(request):
     if 'logged_in' in request.session:
+
+        if request.method=='POST':
+            user = request.session['user_id']
+            query_typ=request.POST['query_type']
+            quer=request.POST['query']
+
+            if query_typ!='0':
+             
+                p=PersonalQuery.objects.filter()
+                PersonalQuery.objects.create(user_id=user,pquery_type=query_typ,pquery=quer,pquery_id=len(p)+1,id=len(p)+1) 
         user = request.session['user_id']
         ans1 = Notifications.objects.filter(user_id=user)
         user_details = UserDetails.objects.filter(user_id=user)
