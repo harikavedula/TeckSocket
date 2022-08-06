@@ -684,16 +684,18 @@
             </div>
           </div>
           {%endfor%}
+          {% if truth_val %}
           <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
             <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
             <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
 
           </svg>
+          
           <div style="margin:0 auto !important;max-width:300px">
             <h3>You Caught up everything</h3>
           </div>
 
-
+         {% endif %}
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

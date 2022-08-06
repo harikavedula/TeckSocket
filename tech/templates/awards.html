@@ -739,8 +739,8 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="exampleInputName1">Skills</label>
-                              <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                              <label for="exampleInputName2">Skills</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="Name">
                             </div>
                             <button type="submit" class="btn btn-gradient-primary me-2">Send
                               Recognition</button>
@@ -976,13 +976,13 @@
 
     names4 = names3.split("', '")
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-    // var skills = JSON.parse(JSON.stringify("{{skills}}"))
-    // var skills1 = skills.replace(/&quot;/g, "'");
-    // var skills2 = skills1.slice(2)
-    // var skills3 = skills2.slice(0, -2)
-    // skills4 = skills3.split("', '")
+    var skills = JSON.parse(JSON.stringify("{{skills}}"))
+    var skills1 = skills.replace(/&quot;/g, "'");
+    var skills2 = skills1.slice(2)
+    var skills3 = skills2.slice(0, -2)
+    skills4 = skills3.split("', '")
     autocomplete(document.getElementById("exampleInputName1"), names4);
-
+    autocomplete(document.getElementById("exampleInputName2"), skills4);
   </script>
   <script>
     function btnToggle() {

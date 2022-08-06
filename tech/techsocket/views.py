@@ -72,12 +72,17 @@ def index(request):
             d['notification']=x.notification
             d['msg']=x.notification_message
             ln.append(d)
+        if(len(l)==0):
+            b=True
+        else:
+            b=False
         context={
             'userdetails':user_details,
             'posts':l,
             'users_names':l11,
             'skills':l12,
-            'notification':ln
+            'notification':ln,
+            'truth_val':b
             }
         print(context['notification'])
 
@@ -145,6 +150,19 @@ def teamoverview(request):
                 d['join_year']=y.join_year
             l1.append(d)
         ans1=Notifications.objects.filter(user_id=user)
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l3=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l3.append(ans)
+        l11=json.dumps(l3)
+        l12=json.dumps(l2)
         ln=[]
         for x in ans1:
             d={}
@@ -153,6 +171,8 @@ def teamoverview(request):
             ln.append(d)
         team_goals=TeamGoals.objects.filter(team_id=ppp)
         context={
+            'users_names':l11,
+            'skills':l12,
             'userdetails':user_details,
                 'team':l1,
                 'notification':ln,
@@ -228,7 +248,22 @@ def people(request):
             d['notification']=x.notification
             d['msg']=x.notification_message
             ln.append(d)
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l3=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l3.append(ans)
+        l11=json.dumps(l3)
+        l12=json.dumps(l2)
         context={
+            'users_names':l11,
+            'skills':l12,
             'userdetails':user_details,
             'users':users_details,
             'notification':ln
@@ -293,12 +328,28 @@ def felicitations(request):
             d['notification']=x.notification
             d['msg']=x.notification_message
             ln.append(d)
-        data={
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l3=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l3.append(ans)
+        l11=json.dumps(l3)
+        l12=json.dumps(l2)
+        context={
+            'users_names':l11,
+            'skills':l12,
+     
             'achievements':l,
             'userdetails':user_details,
               'notification':ln,
         }
-        return render(request, 'felicitations.html',data)
+        return render(request, 'felicitations.html',context)
 
 
 def awards(request):
@@ -314,6 +365,7 @@ def awards(request):
             for i in x:
                 c=i.no_of_nominations
             #ggfyhf
+            x3=Nominate.objects.filter()
             x1=Nominate.objects.filter(award_id=award)
             hh=UserNominate.objects.filter(user_id=user)
             for x in hh:
@@ -321,7 +373,7 @@ def awards(request):
                     if x.nominated=='False':
                         print(1111)
                         if len(x1)==0:
-                            Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+                            Nominate.objects.create(award_id=award,user_id=user2,id=len(x3)+1,no_of_nominations=1)
                         else:
                             x2=Nominate.objects.filter(award_id=award,user_id=user2)
                             if len(x2)==0:
@@ -357,13 +409,28 @@ def awards(request):
             d['notification'] = x.notification
             d['msg'] = x.notification_message
             ln.append(d)
-        data={
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l3=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l3.append(ans)
+        l11=json.dumps(l3)
+        l12=json.dumps(l2)
+        context={
+            'users_names':l11,
+            'skills':l12,
             'awards':l,
             'users_names':l11,
             'userdetails': user_details,
             'notification': ln,
         }
-        return render(request, 'awards.html',data)
+        return render(request, 'awards.html',context)
 
 
 def talentassesments(request):
@@ -615,13 +682,28 @@ def skillfeed(request):
             d['notification'] = x.notification
             d['msg'] = x.notification_message
             ln.append(d)
-        data = {
+        users=UserDetails.objects.filter().exclude(user_id=user)
+        l3=[]
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+       
+        for i in users:
+            ans=i.first_name+" "+i.last_name+"("+i.user_id+")"
+            l3.append(ans)
+        l11=json.dumps(l3)
+        l12=json.dumps(l2)
+        context={
+            'users_names':l11,
+            'skills':l12,
 
             'userdetails': user_details,
             'notification': ln,
 
         }
-        return render(request, 'skillfeed.html',data)
+        return render(request, 'skillfeed.html',context)
 
 
 def personal(request):
