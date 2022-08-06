@@ -367,21 +367,87 @@ def talentassesments(request):
 
 
 def rewards(request):
-    return render(request, 'rewards.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+        
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+            
+        }
+        return render(request, 'rewards.html',data)
 
 
 def feedback(request):
-    return render(request, 'feedback.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'feedback.html',data)
 
 #yess
 def goals(request):
-    print("oooo")
-    if request.session=='POST':
-        print("yeahhhh")
-    return render(request, 'goals.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+    
+        return render(request, 'goals.html',data)
 
 def queries(request):
-    return render(request, 'queries.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'queries.html',data)
 
 
 def personaldm(request):
@@ -399,6 +465,34 @@ def quiz(request):
         user_details = UserDetails.objects.filter(user_id=user)
         if request.method=="GET":
             topic_id=request.GET['topic_id']
+            data1=UserAnswers.objects.filter(user_id=user)
+            for x in data1:
+                print(x.topic_id)
+                if str(x.topic_id)==str(topic_id):
+                    print(10)
+                    score=x.score
+                    total=20
+                    ans1 = Notifications.objects.filter(user_id=user)
+                    percentage = (score/total)*100
+                    ln = []
+                    for x in ans1:
+                        d = {}
+                        d['notification'] = x.notification
+                        d['msg'] = x.notification_message
+                        ln.append(d)
+                    topics = Topics.objects.filter(topic_id=request.session['topic_id'])
+                    for t in topics:
+                        topic = t.topic
+                    data3 = {
+                        'total': total,
+                        'score': score,
+                        'percentage': percentage,
+                        'topic': topic,
+                        'userdetails': user_details,
+                        'notification': ln,
+
+                    }
+                    return render(request, 'result.html', data3)
             questions=Questions.objects.filter(topic_id=topic_id)
             request.session['topic_id'] = topic_id
         
@@ -432,6 +526,7 @@ def quiz(request):
                     score+=1
                     x=1
             percentage=(score/total)*100
+            UserAnswers.objects.create(topic_id=topic_id,user_id=user,score=score)
             ans1 = Notifications.objects.filter(user_id=user)
             ln = []
             for x in ans1:
