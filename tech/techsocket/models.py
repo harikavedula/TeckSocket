@@ -160,3 +160,8 @@ class Questions(models.Model):
     option_3 = models.CharField(max_length=200)
     option_4 = models.CharField(max_length=200)
     answer = models.CharField(max_length=8)
+
+class UserAnswers(models.Model):
+    topic_id=models.IntegerField()
+    user_id=models.CharField(max_length=8)
+    score=models.IntegerField()
