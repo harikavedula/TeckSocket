@@ -36,7 +36,17 @@
     .d-yes {
       display: none !important;
     }
-
+.comment{
+  border-radius: 5px;
+  border:none;
+  background-color: white;
+  width: 30%;
+  border-top:  0.5px solid gray;
+  border-bottom: 0.1px solid gray;
+  overflow: hidden;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgb(78, 77, 77)
+}
     @media all and (max-width: 950px) {
 
       .searnew {
@@ -529,7 +539,7 @@
           <div class="row">
             <div class="col-12 grid-margin">
               <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="padding-bottom: 10px !important;">
                   <p class="card-title">{% with 'images/faces/'|add:x.mention_user_id|add:'.jpg' as image_static %}
                     <img src="{% static image_static %}" class="img-sm rounded-circle me-3" alt="image">
                     {% endwith %}
@@ -548,13 +558,13 @@
                   <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
                     <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
                     <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
-                    <i class="mdi  mdi-send" style="font-size: 30px !important;float:right;"></i>
+                    <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
                   </div>
-                  <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;">
+                  <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
                     <form action="/form/submit" method="POST">
-                      <textarea class="comment" placeholder="Add Comment..." style="float:left"></textarea>
-                      <button class="msg_send_btn" type="submit" style="border:none  ;float:left;padding: 2.5px;"><i
-                          class="fa  fa-paper-plane" aria-hidden="true" style="font-size:20px ;"></i></button>
+                      <textarea class="comment" placeholder="Add Comment..." style="float:left;"></textarea>
+                      <button class="msg_send_btn" type="submit" style="border:none  ;float:left;padding: 2.5px; background-color: white;"><i
+                          class="mdi  mdi-send" aria-hidden="true" style="font-size:20px ;"></i></button>
                     </form>
                   </div>
                 </div>

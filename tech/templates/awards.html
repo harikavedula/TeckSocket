@@ -45,7 +45,10 @@
     .yas {
       transition: all 0.3s linear;
     }
+.dropdown-menu.show.r{
+  inset: -180px -50px -150px -650px !important;
 
+}
     .yas:hover {
       -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
       -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
@@ -670,7 +673,7 @@
               <ul class="breadcrumb">
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link " id="RecognitionDropdown" href="#" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                    aria-expanded="false" style="inset: -250px -50px -150px -260px !important;">
 
                     <div class="nav-profile-text">
                       <p class="mb-1 text-black"><span style="font-size: 20px ;"><strong>Send
@@ -678,8 +681,8 @@
                           style="font-size: 23px !important;"></i></p>
                     </div>
                   </a>
-                  <div class="dropdown-menu navbar-dropdown" id="Dropdown" aria-labelledby="RecognitionDropdown"
-                    style="width: 300% !important; right: 0 ;">
+                  <div class="dropdown-menu r" id="Dropdown" aria-labelledby="RecognitionDropdown"
+                    style="width: 300% !important; right: 0 ; bottom: 100%;inset: -250px -50px -150px -260px !important;">
                     <div class="col-12 grid-margin stretch-card">
                       <div class="card">
                         <div class="card-body">
