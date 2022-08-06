@@ -128,6 +128,7 @@ def teamoverview(request):
         for x in team:
             if user in x.members_list:
                 l=x.members_list
+                ppp=x.team_id
         l1=[]
         sum=1
         for x in l:
@@ -150,10 +151,12 @@ def teamoverview(request):
             d['notification']=x.notification
             d['msg']=x.notification_message
             ln.append(d)
+        team_goals=TeamGoals.objects.filter(team_id=ppp)
         context={
             'userdetails':user_details,
                 'team':l1,
-                'notification':ln
+                'notification':ln,
+                'team_goals':team_goals
         }
         return render(request, 'teamoverview.html',context)
 
@@ -316,12 +319,13 @@ def awards(request):
             for x in hh:
                 if x.award_id==award:
                     if x.nominated=='False':
+                        print(1111)
                         if len(x1)==0:
                             Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
                         else:
                             x2=Nominate.objects.filter(award_id=award,user_id=user2)
                             if len(x2)==0:
-                                Nominate.objects.create(award_id=award,user_id=user2,id=1,no_of_nominations=1)
+                                Nominate.objects.create(award_id=award,user_id=user2,id=len(x1)+1,no_of_nominations=1)
                             else:
                                 Nominate.objects.filter(award_id=award,user_id=user2).update(no_of_nominations=len(x2)+1)
                         c+=1
@@ -437,10 +441,12 @@ def goals(request):
             d['notification'] = x.notification
             d['msg'] = x.notification_message
             ln.append(d)
+        goals=PersonalGoals.objects.filter(user_id=user)
         data = {
 
             'userdetails': user_details,
             'notification': ln,
+            'goals':goals
 
         }
     
