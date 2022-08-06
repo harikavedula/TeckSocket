@@ -309,7 +309,7 @@ def awards(request):
             c=0
             for i in x:
                 c=i.no_of_nominations
-            
+            #ggfyhf
             x1=Nominate.objects.filter(award_id=award)
             hh=UserNominate.objects.filter(user_id=user)
             for x in hh:
