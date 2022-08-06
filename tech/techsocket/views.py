@@ -577,12 +577,63 @@ def quiz(request):
 
 
 def projectfeed(request):
-    return render(request, 'projectfeed.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'projectfeed.html',data)
 
 
 def skillfeed(request):
-    return render(request, 'skillfeed.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'skillfeed.html',data)
 
 
 def personal(request):
-    return render(request, 'personal.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+        data = {
+
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'personal.html',data)
