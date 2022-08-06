@@ -170,3 +170,9 @@ class UserNominate(models.Model):
     award_id=models.IntegerField()
     user_id=models.CharField(max_length=8)
     nominated=models.TextField()
+
+class PersonalQuery(models.Model):
+    pquery_type=models.TextField()
+    pquery_id=models.IntegerField()
+    pquery=models.TextField()
+    user_id=models.CharField(max_length=8)
