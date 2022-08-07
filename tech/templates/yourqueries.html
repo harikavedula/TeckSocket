@@ -168,8 +168,8 @@
 
                     <li class="nav-item">
                         <a class="nav-link " href="/techquery">
-                            <span class="menu-title ">Questions</span>
-                            <i class="mdi mdi-comment-question-outline menu-icon "></i>
+                            <span class="menu-title  active ">Questions</span>
+                            <i class="mdi mdi-comment-question-outline menu-icon active"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -180,8 +180,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="/yourqueries">
-                            <span class="menu-title active">Your Queries</span>
-                            <i class="mdi mdi mdi-comment-account menu-icon active"></i>
+                            <span class="menu-title  ">Your Queries</span>
+                            <i class="mdi mdi mdi-comment-account menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -201,45 +201,38 @@
                     <div class="page-header">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-comment-account menu-icon"></i>
-                            </span>Your Queries
+                                <i class="mdi mdi-comment-question-outline"></i>
+                            </span>Tech Queries
                         </h3>
 
                     </div>
-
+                    {%for x in posts%}
 
                     <div class="row">
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                                            class="img-sm rounded-circle me-3" alt="image">
+                                    <p class="card-title">
+                                            {% with 'images/faces/'|add:x.user_id|add:'.jpg' as image_static %}
+
+
+                                <img src="{% static image_static %}" class="img-sm rounded-circle me-3" alt="image">
+                                {% endwith %}
 
                                         <span
                                             style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                                            You </span>&nbsp;&nbsp;<br><br>
+                                          You </span>&nbsp;&nbsp;<br><br>
                                     <div style="width:50px ; float: left;"> <i
                                             class="mdi mdi-play mdi-rotate-270"></i><br>&nbsp;5<br>
                                         <i class="mdi mdi-play mdi-rotate-90"></i>
                                     </div><br>
                                     <span
                                         style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 20px;">
-                                        #python #lists #indexoutofrange </span>
+                                        #{{x.skill}} </span>
                                     </p>
                                     <br>
                                     <div class="mb-0 flex-grow">
-                                        <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a
-                                            reader will be
-                                            distracted either
-                                            by the readable content of a page or with your beautiful smile.Lorem Ipsum
-                                            has been the
-                                            industry's
-                                            standard dummy text ever since the 1500s, when an unknown printer took a
-                                            galley of
-                                            type and scrambled it to make a type specimen book. It has survived not only
-                                            five centuries, but
-                                            also the leap into
-                                            electronic typesetting, remaining essentially unchanged. </p>
+                                        <p class="mb-0 " style="margin-left:30px ;">{{x.post}}</p>
                                     </div>
                                     <br>
                                     <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
@@ -261,7 +254,7 @@
                                             <div class="card-body" style="padding-top: 5px ;padding-bottom:15px">
 
 
-                                                {{h.reply}}
+                                           
                                             </div>
                                         </div>
                                     </div>
@@ -285,6 +278,7 @@
                             </div>
                         </div>
                     </div>
+                    {%endfor%}
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->

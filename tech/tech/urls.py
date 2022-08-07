@@ -43,4 +43,5 @@ urlpatterns = [
     path('postquery/', views.postquery, name="postquery"),
     path('yourqueries/', views.yourqueries, name="yourqueries"),
     path('tag/', views.tag, name="tag"),
+    path('queryreplies/',views.queryrepliestech,name="queryrepliestech")
 ]
