@@ -112,11 +112,14 @@ def mentions(request):
             lln=[]
             comments=PostReplies.objects.filter(post_id=x.post_id)
             for r in comments:
-                lln.append(r.reply)
+                d1={}
+                d1['reply']=r.reply
+                d1['userid']=r.user_id
+                lln.append(d1)
             
             d['comments']=lln
             l.append(d)
-            print(l)
+        
         ans1=Notifications.objects.filter(user_id=user)
         ln=[]
         for x in ans1:
