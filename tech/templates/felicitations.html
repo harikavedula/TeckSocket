@@ -37,6 +37,11 @@
         .d-yes {
             display: none !important;
         }
+        .dropdown-menu.show.r{
+  inset: -180px -50px -150px -230px !important;
+  position: fixed;
+
+}
 
         @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
 
@@ -297,9 +302,9 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href=""><img src="{% static 'images/faces/5.png'%}"
+                <a class="navbar-brand brand-logo" href="/index"><img src="{% static 'images/faces/5.png'%}"
                         style="height:45px ; width:210px" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg'%}"
+                <a class="navbar-brand brand-logo-mini" href="/index"><img src="{% static 'images/logo-mini.svg'%}"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -865,10 +870,54 @@
                                                             style="font-size:30px ;color:black;"></i> </td>
 
                                                     <td>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <i class="mdi mdi-heart-box"
+                                                        
+                                                        <a class="nav-link " id="RecognitionDropdown" href="#" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="inset: -250px -50px -150px -260px !important;">
+
+                    <i class="mdi mdi-heart-box"
                                                                 style="font-size:30px ;color:black;"></i>
-                                                        </a>
+                  </a>
+                  <div class="dropdown-menu r" id="Dropdown" aria-labelledby="RecognitionDropdown"
+                    style="width: 60% !important; right: 0 ; bottom: 100%;inset: -250px -50px -150px -260px !important;">
+                    <div class="col-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+
+                          <form class="forms-sample">
+                            <div class="form-group">
+                              <label for="exampleInputName1">Name</label>
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="{{x.name}}">
+                            </div>
+                           
+                            <div class="form-group">
+                              <label for="exampleTextarea1">Message</label>
+                              <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleTextarea1">Techie coins per
+                                person</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text bg-gradient-primary text-white">$</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <div class="input-group-append">
+                                  <span class="input-group-text">.00</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputName2">Skills</label>
+                              <input type="text" class="form-control" id="exampleInputName2" placeholder="Name">
+                            </div>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Send
+                              Recognition</button>
+                            <button class="btn btn-light">Cancel</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                                                     </td>
 
                                                     <!-- <td>

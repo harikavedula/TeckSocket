@@ -605,8 +605,29 @@ def techquery(request):
             
         }
         return render(request, 'techquery.html',context)
+    
 
+def yourqueries(request):
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        user_details = UserDetails.objects.filter(user_id=user)
 
+        context = {
+            'userdetails': user_details,
+
+        }
+        return render(request, 'yourqueries.html', context)
+
+def tag(request):
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        context = {
+            'userdetails': user_details,
+
+        }
+        return render(request, 'tag.html', context)
 def postquery(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
