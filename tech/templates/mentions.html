@@ -47,6 +47,9 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color:rgb(78, 77, 77)
 }
+.sh{
+  display: block !important;
+}
     @media all and (max-width: 950px) {
 
       .searnew {
@@ -556,9 +559,18 @@
                   </div>
                   <br>
                   <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                    <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <i class="mdi mdi-panda " style="font-size: 30px !important;float:left"></i>&nbsp;&nbsp;&nbsp;
+                    <a  id="RecognitionDropdown" href="#" onclick="Dis()"
+                     style="width: 35px !important;float:left;padding-top: 0px;color: black;">
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i></a>
+                     
+                    
                     <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
+                    <div class="col-6 grid-margin stretch-card " id="pcomment" style="display: none;">
+                      <div class="card">
+                        <div class="card-body">
+                          Hello
+                        </div></div></div>
                   </div>
                   <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
                     <form action="/form/submit" method="POST">
@@ -610,6 +622,9 @@
       event.stopPropagation();
     });
   </script>
+  <script>function Dis() {
+  document.getElementById("pcomment").classList.toggle("sh");
+}</script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{%static 'vendors/chart.js/Chart.min.js'%}"></script>
