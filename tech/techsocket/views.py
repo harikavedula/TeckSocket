@@ -62,6 +62,16 @@ def index(request):
                         
                     d['post']=x.post
                     l.append(d)
+                    lln = []
+                    comments = PostReplies.objects.filter(post_id=x.post_id)
+                    for r in comments:
+                        d1 = {}
+                        d1['reply'] = r.reply
+                        d1['userid'] = r.user_id
+                        lln.append(d1)
+
+                    d['comments'] = lln
+                    l.append(d)
         PostSeen.objects.filter(user_id=user).update(seen="True")
         l11=json.dumps(l1)
         l12=json.dumps(l2)
@@ -563,11 +573,50 @@ def queries(request):
 
 
 def personaldm(request):
-    return render(request, 'personaldm.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        user_details = UserDetails.objects.filter(user_id=user)
+        ans1 = Notifications.objects.filter(user_id=user)
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        ln = []
+        for x in ans1:
+            d = {}
+            d['notification'] = x.notification
+            d['msg'] = x.notification_message
+            ln.append(d)
+
+        context = {
+            'userdetails': user_details,
+            'notification': ln,
+
+        }
+        return render(request, 'personaldm.html',context)
 
 
 def techquery(request):
-    return render(request, 'techquery.html')
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        user_details = UserDetails.objects.filter(user_id=user)
+        
+        
+        context = {
+            'userdetails': user_details,
+            
+        }
+        return render(request, 'techquery.html',context)
+
+
+def postquery(request):
+    if 'logged_in' in request.session:
+        user = request.session['user_id']
+        user_details = UserDetails.objects.filter(user_id=user)
+
+        context = {
+            'userdetails': user_details,
+
+        }
+        return render(request, 'postquery.html', context)
 
 
 

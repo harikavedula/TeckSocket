@@ -51,6 +51,11 @@
   color:rgb(78, 77, 77)
 }
 
+.sh{
+   display: block !important;
+}
+
+
     .checkmark__circle {
       stroke-dasharray: 166;
       stroke-dashoffset: 166;
@@ -680,9 +685,27 @@
                   <br>
                   <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
                     <i class="mdi mdi-panda " style="font-size: 30px !important;"></i>&nbsp;&nbsp;&nbsp;
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i>
+                    <a  id="RecognitionDropdown" href="#" onclick="Dis()"
+                     style="width: 35px !important;float:left;padding-top: 0px;color: black;">
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;margin-left: 10px;"></i></a>
+                     
+                    
                     <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
-                  </div>
+             
+                    <div class="col-9 grid-margin stretch-card " id="pcomment" style="display: none;padding-top: 5px;margin-top: 15px; background-color: #eceef1;border-radius: 10px;">
+                      {%for h in x.comments%}
+                      
+                        <div class="card-body" style="padding-top: 5px ;padding-bottom:15px">
+                         {% with 'images/faces/'|add:h.userid|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image" style="width:30px;height:30px;border-radius:50%;">
+                {% endwith %}
+
+                     {{h.reply}}
+                        </div>  {%endfor%}
+                      </div>
+                        </div>
                   <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
                     <form action="/form/submit" method="POST">
                       <textarea class="comment" placeholder="Add Comment..." style="float:left"></textarea>
@@ -853,6 +876,9 @@
       event.stopPropagation();
     });
   </script>
+   <script>function Dis() {
+  document.getElementById("pcomment").classList.toggle("sh");
+}</script>
   <script src="{%static 'vendors/js/vendor.bundle.base.js'%}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->

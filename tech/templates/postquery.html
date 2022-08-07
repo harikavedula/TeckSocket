@@ -168,8 +168,8 @@
 
                     <li class="nav-item">
                         <a class="nav-link " href="/techquery">
-                            <span class="menu-title  active ">Questions</span>
-                            <i class="mdi mdi-comment-question-outline menu-icon active"></i>
+                            <span class="menu-title   ">Questions</span>
+                            <i class="mdi mdi-comment-question-outline menu-icon "></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -179,9 +179,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/postquery">
-                            <span class="menu-title">Post Query</span>
-                            <i class="mdi mdi-message-draw menu-icon"></i>
+                        <a class="nav-link" href="/posttechquery">
+                            <span class="menu-title active">Post Query</span>
+                            <i class="mdi mdi-message-draw menu-icon active"></i>
                         </a>
                     </li>
 
@@ -195,104 +195,46 @@
                     <div class="page-header">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-comment-question-outline"></i>
-                            </span>Tech Queries
+                                <i class="mdi mdi-comment-alert"></i>
+                            </span> Queries
                         </h3>
-
                     </div>
 
 
                     <div class="row">
-                        <div class="col-12 grid-margin">
+                        <div class="col-md-6 grid-margin stretch-card" style="margin: 0px auto ;">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-title"><img src="{% static 'images/faces/face30.jpg'%}"
-                                            class="img-sm rounded-circle me-3" alt="image">
-
-                                        <span
-                                            style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:23px;">
-                                            Anudeep
-                                            Sirise </span>&nbsp;&nbsp;<br><br>
-                                    <div style="width:50px ; float: left;"> <i
-                                            class="mdi mdi-play mdi-rotate-270"></i><br>&nbsp;5<br>
-                                        <i class="mdi mdi-play mdi-rotate-90"></i>
-                                    </div><br>
-                                    <span
-                                        style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 20px;">
-                                        #python #lists #indexoutofrange </span>
-                                    </p>
-                                    <br>
-                                    <div class="mb-0 flex-grow">
-                                        <p class="mb-0 " style="margin-left:30px ;">It is a long established fact that a
-                                            reader will be
-                                            distracted either
-                                            by the readable content of a page or with your beautiful smile.Lorem Ipsum
-                                            has been the
-                                            industry's
-                                            standard dummy text ever since the 1500s, when an unknown printer took a
-                                            galley of
-                                            type and scrambled it to make a type specimen book. It has survived not only
-                                            five centuries, but
-                                            also the leap into
-                                            electronic typesetting, remaining essentially unchanged. </p>
-                                    </div>
-                                    <br>
-                                    <div class="mb-0 flex-grow" style="margin-left: 30px; padding-top: 10px ;">
-                                        <i class="mdi mdi-panda "
-                                            style="font-size: 30px !important;float:left"></i>&nbsp;&nbsp;&nbsp;
-                                        <a id="RecognitionDropdown" href="#" onclick="Dis()"
-                                            style="width: 35px !important;float:left;padding-top: 0px;color: black;">
-                                            <i class="mdi  mdi-comment-multiple-outline"
-                                                style="font-size: 30px !important;margin-left: 10px;"></i></a>
+                                    <h4 class="card-title">Post Your Issue</h4>
+                                    <p class="card-description"> Let Your Peers help You... </p>
 
 
-                                        <i class="fa  fa-paper-plane"
-                                            style="font-size: 30px !important;float:right;"></i>
-
-                                        <div class="col-9 grid-margin stretch-card " id="pcomment"
-                                            style="display: none;padding-top: 5px;margin-top: 15px; background-color: #eceef1;border-radius: 10px;">
-
-
-                                            <div class="card-body" style="padding-top: 5px ;padding-bottom:15px">
-
-
-                                                {{h.reply}}
+                                    <form method="post" action="/queries/">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="form-group autocomplete">
+                                                <label for="exampleInputName2">Skills</label>
+                                                <input type="text" class="form-control" id="exampleInputName2"
+                                                    placeholder="Skills" name="skills" onblur="myFunction()">
                                             </div>
+
+                                            <!--                               
+                                                                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Skills"> -->
                                         </div>
-                                    </div>
-                                    <div class="mb-0 flex-grow"
-                                        style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
-                                        <form action="/postcommentmentions/" method="POST">
-                                            {% csrf_token %}
-                                            <textarea class="comment" placeholder="Reply..." style="float:left;"
-                                                name="comment"></textarea>
-                                            <input type="hidden" name="post_id" value={{x.post_id}}>
-                                            <button class="msg_send_btn" type="submit"
-                                                style="border:none  ;float:left;padding: 2.5px; background-color: white;"><i
-                                                    class="mdi  mdi-send" aria-hidden="true"
-                                                    style="font-size:20px ;"></i></button>
-                                        </form>
-                                    </div>
-
-
-
+                                        <div class="form-group">
+                                            <label for="exampleTextarea1">Your Query</label>
+                                            <textarea class="form-control" id="exampleTextarea1" rows="4"
+                                                name="query"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-gradient-primary me-2"
+                                            style="float: right; margin-right:40px;">Send Query</button>
+                                    </form>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <!-- <footer class="footer">
-          <div class="container-fluid d-flex justify-content-between">
-            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © bootstrapdash.com
-              2021</span>
-            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
-                href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
-                template</a> from Bootstrapdash.com</span>
-          </div>
-        </footer> -->
-                <!-- partial -->
             </div>
             <!-- main-panel ends -->
         </div>
