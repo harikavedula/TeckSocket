@@ -562,18 +562,23 @@
                     <i class="mdi mdi-panda " style="font-size: 30px !important;float:left"></i>&nbsp;&nbsp;&nbsp;
                     <a  id="RecognitionDropdown" href="#" onclick="Dis()"
                      style="width: 35px !important;float:left;padding-top: 0px;color: black;">
-                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;"></i></a>
+                    <i class="mdi  mdi-comment-multiple-outline" style="font-size: 30px !important;margin-left: 10px;"></i></a>
                      
                     
                     <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
              
-                    <div class="col-6 grid-margin stretch-card " id="pcomment" style="display: none;">
+                    <div class="col-9 grid-margin stretch-card " id="pcomment" style="display: none;padding-top: 5px;margin-top: 15px; background-color: #eceef1;border-radius: 10px;">
                       {%for h in x.comments%}
-                      <div class="card">
-                        <div class="card-body">
-                          {{h.userid}}
+                      
+                        <div class="card-body" style="padding-top: 5px ;padding-bottom:15px">
+                         {% with 'images/faces/'|add:h.userid|add:'.jpg' as image_static %}
+
+
+                <img src="{% static image_static %}" alt="image" style="width:30px;height:30px;border-radius:50%;">
+                {% endwith %}
+
                      {{h.reply}}
-                        </div></div>  {%endfor%}
+                        </div>  {%endfor%}
                       </div>
                       
                   </div>
