@@ -607,11 +607,14 @@ def quiz(request):
                     return render(request, 'result.html', data3)
             questions=Questions.objects.filter(topic_id=topic_id)
             request.session['topic_id'] = topic_id
-        
+            rr=Topics.objects.filter(topic_id=request.session['topic_id'])
+            for pp in rr:
+                topic_name=pp.topic
             data = {
 
                 'userdetails': user_details,
                 'questions':questions,
+                'topic_name':topic_name
             # 'notification': ln,
             
             }
