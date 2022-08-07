@@ -745,6 +745,7 @@ def postcommentmentions(request):
             postid=int(request.POST['post_id'])
             comment=request.POST['comment']
             x=PostReplies.objects.filter()
-            PostReplies.objects.create(user_id=user,post_id=postid,reply=comment,id=len(x)+1)
+            if(comment!=""):
+                PostReplies.objects.create(user_id=user,post_id=postid,reply=comment,id=len(x)+1)
             return redirect('/mentions/')
 
