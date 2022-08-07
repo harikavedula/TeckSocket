@@ -561,8 +561,10 @@
                     <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
                   </div>
                   <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
-                    <form action="/form/submit" method="POST">
-                      <textarea class="comment" placeholder="Add Comment..." style="float:left;"></textarea>
+                    <form action="/postcommentmentions/" method="POST">
+                      {% csrf_token %}
+                      <textarea class="comment" placeholder="Add Comment..." style="float:left;" name="comment"></textarea>
+                      <input type="hidden" name="post_id" value={{x.post_id}} >
                       <button class="msg_send_btn" type="submit" style="border:none  ;float:left;padding: 2.5px; background-color: white;"><i
                           class="mdi  mdi-send" aria-hidden="true" style="font-size:20px ;"></i></button>
                     </form>

@@ -39,4 +39,5 @@ urlpatterns = [
     path('projectfeed/', views.projectfeed, name="projectfeed"),
     path('skillfeed/', views.skillfeed, name="skillfeed"),
     path('personal/', views.personal, name="personal"),
+     path('postcommentmentions/', views.postcommentmentions, name="postcomment"),
 ]
