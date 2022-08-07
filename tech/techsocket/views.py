@@ -597,11 +597,29 @@ def personaldm(request):
 def techquery(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
-        user_details = UserDetails.objects.filter(user_id=user)
-        
-        
+        user_details = UserDetails.objects.filter(user_id=user).order_by('-id')
+        posts=Query.objects.filter().order_by('id')
+        l=[]
+        for x in posts:
+            print(1)
+            d={}
+            d['post']=x.query
+            d['user_id']=x.user_id
+            y1=x.hastags
+            skillname=SkillList.objects.filter(skill_id=y1)
+            for r in skillname:
+                skilll=r.skill_name
+            userdetails=UserDetails.objects.filter(user_id=x.user_id)
+            for y in userdetails:
+                d['name']=y.first_name+" "+y.last_name
+            d['skill']=skilll
+            
+            l.append(d)
+        print(l)
+      
         context = {
             'userdetails': user_details,
+            'posts':l
             
         }
         return render(request, 'techquery.html',context)
@@ -630,10 +648,25 @@ def tag(request):
         return render(request, 'tag.html', context)
 def postquery(request):
     if 'logged_in' in request.session:
+        if request.method=='POST':
+            user = request.session['user_id']
+            x=Query.objects.filter()
+            queryy=request.POST['query']
+            skill=request.POST['skills']
+            p=SkillList.objects.filter(skill_name=skill)
+            for y in p:
+                skillid=y.skill_id
+            Query.objects.create(id=len(x)+1,query=queryy,query_id=len(x)+1,user_id=user,hastags=skillid)
         user = request.session['user_id']
         user_details = UserDetails.objects.filter(user_id=user)
-
+        l2=[]
+        skills=SkillList.objects.filter()
+        for i in skills:
+            ans=i.skill_name
+            l2.append(ans)
+        l12=json.dumps(l2)
         context = {
+              'skills':l12,
             'userdetails': user_details,
 
         }
@@ -739,7 +772,6 @@ def projectfeed(request):
         user = request.session['user_id']
         ans1 = Notifications.objects.filter(user_id=user)
         user_details = UserDetails.objects.filter(user_id=user)
-
         ln = []
         for x in ans1:
             d = {}
