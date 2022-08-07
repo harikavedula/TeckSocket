@@ -566,11 +566,15 @@
                      
                     
                     <i class="fa  fa-paper-plane" style="font-size: 30px !important;float:right;"></i>
+             
                     <div class="col-6 grid-margin stretch-card " id="pcomment" style="display: none;">
+                      {%for h in x.comments%}
                       <div class="card">
                         <div class="card-body">
-                          Hello
-                        </div></div></div>
+                     {{h}}
+                        </div></div>  {%endfor%}
+                      </div>
+                      
                   </div>
                   <div class="mb-0 flex-grow" style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
                     <form action="/postcommentmentions/" method="POST">
