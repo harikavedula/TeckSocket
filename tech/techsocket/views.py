@@ -601,11 +601,18 @@ def techquery(request):
         posts=Query.objects.filter().order_by('id')
         l=[]
         for x in posts:
-            print(1)
             d={}
             d['post']=x.query
+            d['post_id']=x.query_id
             d['user_id']=x.user_id
             y1=x.hastags
+            replies=QueryReplies.objects.filter(query_id=x.query_id)
+            l12=[]
+            for r in replies:
+                d1={}
+                d1['user_id']=r.user_id
+                d1['reply']=r.reply
+                l12.append(d1)
             skillname=SkillList.objects.filter(skill_id=y1)
             for r in skillname:
                 skilll=r.skill_name
@@ -613,9 +620,9 @@ def techquery(request):
             for y in userdetails:
                 d['name']=y.first_name+" "+y.last_name
             d['skill']=skilll
-            
+            d['comments']=l12
             l.append(d)
-        print(l)
+       
       
         context = {
             'userdetails': user_details,
@@ -629,10 +636,25 @@ def yourqueries(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
         user_details = UserDetails.objects.filter(user_id=user)
-
+        posts=Query.objects.filter(user_id=user).order_by('-id')
+        l=[]
+        for x in posts:
+            d={}
+            d['post']=x.query
+            d['user_id']=x.user_id
+            y1=x.hastags
+            skillname=SkillList.objects.filter(skill_id=y1)
+            for r in skillname:
+                skilll=r.skill_name
+            userdetails=UserDetails.objects.filter(user_id=x.user_id)
+            for y in userdetails:
+                d['name']=y.first_name+" "+y.last_name
+            d['skill']=skilll
+            
+            l.append(d)
         context = {
             'userdetails': user_details,
-
+            'posts':l
         }
         return render(request, 'yourqueries.html', context)
 
@@ -640,10 +662,29 @@ def tag(request):
     if 'logged_in' in request.session:
         user = request.session['user_id']
         user_details = UserDetails.objects.filter(user_id=user)
-
+        
+        for x in user_details:
+            l1=x.skills
+        l2=l1.split(",")
+        posts=Query.objects.filter(user_id=user).order_by('-id')
+        l=[]
+        for x in posts:
+            if x.hastags in l2:
+                d={}
+                d['post']=x.query
+                d['user_id']=x.user_id
+                y1=x.hastags
+                skillname=SkillList.objects.filter(skill_id=y1)
+                for r in skillname:
+                    skilll=r.skill_name
+                userdetails=UserDetails.objects.filter(user_id=x.user_id)
+                for y in userdetails:
+                    d['name']=y.first_name+" "+y.last_name
+                d['skill']=skilll
+                l.append(d)
         context = {
             'userdetails': user_details,
-
+            'posts':l
         }
         return render(request, 'tag.html', context)
 def postquery(request):
@@ -853,4 +894,15 @@ def postcommentmentions(request):
             if(comment!=""):
                 PostReplies.objects.create(user_id=user,post_id=postid,reply=comment,id=len(x)+1)
             return redirect('/mentions/')
+
+def queryrepliestech(request):
+    if 'logged_in' in request.session:
+        if request.method=='POST':
+            user=request.session['user_id']
+            postid=int(request.POST['post_id'])
+            comment=request.POST['comment']
+            x=QueryReplies.objects.filter()
+            if(comment!=""):
+                QueryReplies.objects.create(user_id=user,query_id=postid,reply=comment,id=len(x)+1)
+            return redirect('/techquery/')
 

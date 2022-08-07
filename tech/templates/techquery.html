@@ -249,18 +249,25 @@
 
                                         <div class="col-9 grid-margin stretch-card " id="pcomment"
                                             style="display: none;padding-top: 5px;margin-top: 15px; background-color: #eceef1;border-radius: 10px;">
+                                 
+                            
+                                            {%for h in x.comments%}
+                                            {% with 'images/faces/'|add:h.user_id|add:'.jpg' as image_static %}
 
 
+                                            <img src="{% static image_static %}" alt="image" style="width:30px;height:30px;border-radius:50%;">
+                                            {% endwith %}
                                             <div class="card-body" style="padding-top: 5px ;padding-bottom:15px">
 
-
+                                                            {{h.reply}}
                                            
                                             </div>
+                                            {%endfor%}
                                         </div>
                                     </div>
                                     <div class="mb-0 flex-grow"
                                         style="margin-left: 60px;padding-top: 5px ;margin-top:40px">
-                                        <form action="/postcommentmentions/" method="POST">
+                                        <form action="/queryreplies/" method="POST">
                                             {% csrf_token %}
                                             <textarea class="comment" placeholder="Reply..." style="float:left;"
                                                 name="comment"></textarea>
