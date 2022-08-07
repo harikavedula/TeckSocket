@@ -104,6 +104,7 @@ def mentions(request):
             r1=UserDetails.objects.filter(user_id=x.user_id)
             d['mention']=ans
             d['post']=x.post
+            d['post_id']=x.post_id
             for y in r1:
                 d['user_name']=y.first_name+" "+y.last_name
             d['mention_user_id']=x.user_id
@@ -725,3 +726,14 @@ def personal(request):
 
         }
         return render(request, 'personal.html',data)
+
+def postcommentmentions(request):
+    if 'logged_in' in request.session:
+        if request.method=='POST':
+            user=request.session['user_id']
+            postid=int(request.POST['post_id'])
+            comment=request.POST['comment']
+            x=PostReplies.objects.filter()
+            PostReplies.objects.create(user_id=user,post_id=postid,reply=comment,id=len(x)+1)
+            return redirect('/mentions/')
+
